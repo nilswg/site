@@ -21,6 +21,6 @@
       "@/*": ["./*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "packages/@nilswg/i18n-next/i18n.js", "packages/@nilswg/i18n-next/i18n.config.ts", "packages/@nilswg/i18n-next/i18n.ts", "packages/@nilswg/i18n-next/LocaleProvider.tsx", "packages/@nilswg/i18n-next/index.mjs"],
   "exclude": ["node_modules"]
 }
