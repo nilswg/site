@@ -1,0 +1,20 @@
+{
+  "name": "Pei-Hua Weng",
+  "jobtitle": "Full Stack Developer",
+  "address": "Penghu Country, Taiwan",
+  "social": "social",
+  "profile": "profile",
+  "experience": "experience",
+  "skills": "skills",
+  "certificates": "certificates",
+  "languages": "languages",
+  "profileTexts": [
+    "As a motivated and skilled full-stack web developer with 2.5 years of development experience.",
+
+    "I have a proven track record of delivering high-quality results, including large-scale business ERP systems and casino web games",
+
+    "My extensive knowledge of TypeScript, Node.js, React, Next.js, Angular, Express, Vite, and other cutting-edge web technologies has allowed me to solve any problems in the field.",
+
+    "Not only am I a self-taught expert, but I also enjoy sharing my knowledge with others. I had introduced new dev-tools to my previous work team, such as Prettier, to improve the quality and readability of the code. In my personal Discord group, I serve as the main speaker and have already helped two group members secure front-end developer positions."
+  ]
+}
