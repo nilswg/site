@@ -1,5 +1,5 @@
 import { initI18n } from '@/i18n';
-import { Example } from '@/components/Example';
+import { Example } from '@nilswg-site/ui';
 import { I18nProvider } from '@/components/I18nProvider';
 
 export default async function Home({ params }: { params: { locale: string } }) {

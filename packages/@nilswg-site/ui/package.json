@@ -1,4 +1,7 @@
 {
     "name": "@nilswg-site/ui",
-    "main": "./index.ts"
+    "main": "./index.ts",
+    "peerDependencies": {
+        "react-i18next": "^14.1.0"
+    }
 }
