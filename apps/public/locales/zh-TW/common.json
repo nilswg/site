@@ -1,0 +1,32 @@
+{
+  "fontStyles": "font-zhtw",
+  "lang": "zh-TW",
+  "nav": {
+    "home": "主頁",
+    "projects": "個人專案",
+    "contact": "聯絡我",
+    "blog": "部落格",
+    "en": "英",
+    "ch": "中"
+  },
+  "errorDict": {
+    "topic_invalid_enum_value": "請選擇訊息主題",
+    "email_invalid_string": "無效的電子郵件地址",
+    "name_invalid_string": "無效的姓名",
+    "message_invalid_string": "無效的訊息留言",
+    "email_too_small": "電子郵件地址過短",
+    "name_too_small": "名稱過短",
+    "message_too_small": "訊息過短",
+    "server_error": "伺服器狀態異常",
+    "success": "你的信件已順利寄出!",
+    "error": "信件寄送失敗",
+    "wrong_password": "密碼錯誤",
+    "locale_invalid_string": "請提供正確的語言",
+    "password_invalid_string": "請提供正確的密碼"
+  },
+  "enter_password": "請輸入密碼",
+  "website_under_construction": "網站還在建設中",
+  "coming_soon": "盡請期待",
+  "page_not_found": "找不到網頁",
+  "go_home": "回到主頁"
+}
