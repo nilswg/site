@@ -1,0 +1,14 @@
+{
+    "name": "@nilswg-site/feat",
+    "main": "./index.ts",
+    "peerDependencies": {
+        "@nilswg/i18n": "workspace:*",
+        "@nilswg-site/ui": "workspace:*",
+        "@nilswg-site/hooks": "workspace:*",
+        "next-i18next": "^15.2.0",
+        "react": "^18.2.0",
+        "react-dom": "^18.2.0",
+        "react-icons": "^4.3.1",
+        "typewriter-effect": "^2.21.0"
+    }
+}
