@@ -1,0 +1,6 @@
+{
+    "name": "@nilswg/i18n",
+    "peerDependencies": {
+        "i18next": "^23.10.1"
+    }
+}
