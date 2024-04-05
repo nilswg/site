@@ -1,3 +1,142 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+@font-face {
+  font-family: "La Belle Aurore";
+  src: url("../public/fonts/LaBelleAurore-Regular.ttf");
+}
+@font-face {
+  font-family: "RussoOne";
+  src: url("../public/fonts/RussoOne-Regular.ttf");
+}
+@font-face {
+  font-family: "Orbitron";
+  src: url("../public/fonts/Orbitron-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "Play";
+  src: url("../public/fonts/Play-Regular.ttf");
+}
+@font-face {
+  font-family: "Outfit";
+  src: url("../public/fonts/Outfit-VariableFont_wght.ttf");
+}
+@font-face {
+  font-family: "MSBlack";
+  src: url("../public/fonts/MSBlack.ttf");
+}
+@font-face {
+  font-family: "NotoSansTC";
+  src: url("../public/fonts/NotoSansTC-Regular.otf");
+}
+@font-face {
+  font-family: "NotoSansTC-Bold";
+  src: url("../public/fonts/NotoSansTC-Bold.otf");
+}
+@font-face {
+  font-family: "Roboto";
+  src: url("../public/fonts/Roboto-Regular.ttf");
+}
+@font-face {
+  font-family: "RobotoCondensed";
+  src: url("../public/fonts/RobotoCondensed-Regular.ttf");
+}
+@layer base {
+  html {
+    @apply scroll-smooth;
+  }
+  :root {
+    --navbar-height: 5rem;
+    --footer-height: 20rem;
+  }
+}
+@layer components {
+  .flat-btn {
+    @apply my-1 inline-block border border-sky-300 px-8 py-4 text-sm font-bold tracking-[0.5rem] text-sky-300 no-underline transition-colors duration-300;
+  }
+  .flat-btn:hover {
+    @apply bg-sky-300 text-gray-900;
+  }
+  .flat-btn:focus {
+    @apply outline-none ring ring-sky-300;
+  }
+  .flat-btn:active {
+    @apply border-sky-600 text-sky-600;
+  }
+  .flat-btn:disabled {
+    @apply border-gray-400 bg-transparent text-gray-400;
+  }
+  @screen sm {
+    .flat-btn {
+      @apply text-base;
+    }
+  }
+}
+@layer components {
+  .tags {
+    @apply font-belle text-lg text-sky-300 opacity-60 sm:text-xl;
+  }
+}
+@layer components {
+  .opening-bg-image {
+    @apply relative z-0 overflow-hidden bg-transparent;
+  }
+  .opening-bg-image::after {
+    @apply absolute -top-[5rem] z-[-1] h-full w-full -rotate-12 scale-100 animate-bounceIn bg-contain bg-[center] bg-no-repeat opacity-[5%] bg-blend-multiply content-[""] animate-duration-[1s] animate-delay-[1.5s] 2xl:scale-75;
+    background-image: url("/nilswg-blue-noblack.svg");
+  }
+}
+@layer components {
+  .blob-mask {
+    mask-image: url("/img/blob.svg");
+    mask-repeat: no-repeat;
+    mask-position: center center;
+  }
+}
+@layer components {
+  #timeline .experience-box {
+    @apply mr-[0.5rem] block max-w-md cursor-pointer rounded-sm border-2 border-sky-800 py-4 transition-all  duration-[0.3s] md:mr-[1.2rem] lg:max-w-lg xl:max-w-xl 2xl:max-w-2xl;
+  }
+  #timeline .experience-box::before {
+    @apply pointer-events-none absolute top-[50%] right-[100%] -mt-[0.75rem] border-[0.75rem] border-transparent border-r-sky-800 transition-colors content-[""];
+  }
+  #timeline .experience-box::after {
+    @apply pointer-events-none absolute top-[50%] right-[calc(100%-3px)] -mt-[0.75rem] border-[0.75rem] border-transparent border-r-gray-900 transition-colors content-[""];
+  }
+  /*
+   * ## class selector
+   *
+   * CSS 中的類選擇器使用句點（"."）後跟類名來表示。
+   * 例如， css : .experience-box.open 表同時包含 .experience-box 和 .open 兩個類
+   * 對應， html: class="experience-box open"
+   */
+  #timeline .experience-box.open {
+    @apply mr-[0.5rem] max-h-full translate-x-[0.5rem] border-sky-400 md:mr-[1.2rem]  md:translate-x-[1.2rem];
+  }
+  #timeline .experience-box.open > p {
+    @apply flex animate-fadeIn flex-row;
+  }
+  #timeline .experience-box.open::before {
+    @apply border-r-sky-400;
+  }
+}
+@layer components {
+  .contact-aufofill input:-webkit-autofill,
+  .contact-aufofill input:-webkit-autofill:enabled,
+  .contact-aufofill input:-webkit-autofill:hover,
+  .contact-aufofill input:-webkit-autofill:focus,
+  .contact-aufofill textarea:-webkit-autofill,
+  .contact-aufofill textarea:-webkit-autofill:enabled,
+  .contact-aufofill textarea:-webkit-autofill:hover,
+  .contact-aufofill textarea:-webkit-autofill:focus,
+  .contact-aufofill select:-webkit-autofill,
+  .contact-aufofill select:-webkit-autofill:enabled,
+  .contact-aufofill select:-webkit-autofill:hover,
+  .contact-aufofill select:-webkit-autofill:focus {
+    /* @apply text-sky-600 bg-myblack; */
+    -webkit-text-fill-color: rgb(56, 189, 248);
+    -webkit-box-shadow: 0 0 0px 1000px rgb(28, 29, 37) inset;
+    box-shadow: 0 0 0px 1000px rgb(28, 29, 37) inset;
+    background-color: rgb(28, 29, 37);
+  }
+}
