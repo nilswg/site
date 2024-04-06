@@ -3,43 +3,43 @@
 @tailwind utilities;
 @font-face {
   font-family: "La Belle Aurore";
-  src: url("../public/fonts/LaBelleAurore-Regular.ttf");
+  src: url("/fonts/LaBelleAurore-Regular.ttf");
 }
 @font-face {
   font-family: "RussoOne";
-  src: url("../public/fonts/RussoOne-Regular.ttf");
+  src: url("/fonts/RussoOne-Regular.ttf");
 }
 @font-face {
   font-family: "Orbitron";
-  src: url("../public/fonts/Orbitron-VariableFont_wght.ttf");
+  src: url("/fonts/Orbitron-VariableFont_wght.ttf");
 }
 @font-face {
   font-family: "Play";
-  src: url("../public/fonts/Play-Regular.ttf");
+  src: url("/fonts/Play-Regular.ttf");
 }
 @font-face {
   font-family: "Outfit";
-  src: url("../public/fonts/Outfit-VariableFont_wght.ttf");
+  src: url("/fonts/Outfit-VariableFont_wght.ttf");
 }
 @font-face {
   font-family: "MSBlack";
-  src: url("../public/fonts/MSBlack.ttf");
+  src: url("/fonts/MSBlack.ttf");
 }
 @font-face {
   font-family: "NotoSansTC";
-  src: url("../public/fonts/NotoSansTC-Regular.otf");
+  src: url("/fonts/NotoSansTC-Regular.otf");
 }
 @font-face {
   font-family: "NotoSansTC-Bold";
-  src: url("../public/fonts/NotoSansTC-Bold.otf");
+  src: url("/fonts/NotoSansTC-Bold.otf");
 }
 @font-face {
   font-family: "Roboto";
-  src: url("../public/fonts/Roboto-Regular.ttf");
+  src: url("/fonts/Roboto-Regular.ttf");
 }
 @font-face {
   font-family: "RobotoCondensed";
-  src: url("../public/fonts/RobotoCondensed-Regular.ttf");
+  src: url("/fonts/RobotoCondensed-Regular.ttf");
 }
 @layer base {
   html {
