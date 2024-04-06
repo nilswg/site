@@ -1,15 +1,19 @@
 ---
 import Layout from "@/layouts/Layout.astro";
-import { changeLanguage, setDefaultNamespace, t } from "i18next";
-import { Example } from "@nilswg-site/ui";
+import { t, changeLanguage } from "i18next";
+import Opening from "@/feats/Opening.astro";
 
 changeLanguage("zh-TW");
-
-setDefaultNamespace("common");
 ---
 
 <Layout title={'i18n_' + t('lang')}>
-    <main class="flex min-h-screen flex-col items-center justify-between p-24 text-white">
-        <Example />
-    </main>
+    <div class="mt-[var(--navbar-height)]">
+        <h1 class="tags ml-4 text-xl leading-10">{'<html>'}</h1>
+        <h1 class="tags ml-6 text-xl leading-10">{'<body>'}</h1>
+        <Opening />
+        
+        <!-- <Example /> -->
+        <h1 class="tags ml-6 text-xl leading-10">{'</body>'}</h1>
+        <h1 class="tags ml-4 text-xl leading-10">{'</html>'}</h1>
+    </div>
 </Layout>
