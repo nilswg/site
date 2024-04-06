@@ -2,12 +2,12 @@
 import Opening from "@/feats/Opening.astro";
 import Layout from "@/layouts/Layout.astro";
 import { changeLanguage, t } from "i18next";
-import { DecTag } from "@/components/DecorativeTags";
+import { DecTag } from "@nilswg-site/ui";
 
 changeLanguage("zh-TW");
 ---
 
-<Layout title={'Nilswg'}>
+<Layout>
     <div class="mt-[var(--navbar-height)]">
         <DecTag className="ml-4 text-xl leading-10">{'<html>'}</DecTag>
         <DecTag className="ml-6 text-xl leading-10">{'<body>'}</DecTag>

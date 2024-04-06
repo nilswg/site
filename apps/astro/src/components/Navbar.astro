@@ -1,0 +1,27 @@
+---
+import { Nav } from '@nilswg-site/ui';
+import { Image } from 'astro:assets';
+import { t } from 'i18next';
+import logo from 'public/nilswg-blue-noblack-min.svg';
+
+const lang = t('common:lang');
+
+const navItems = [
+    { href: '/', text: t('common:nav.home') },
+    { href: '/#projects', text: t('common:nav.projects') },
+    { href: '/#contact', text: t('common:nav.contact') },
+    { href: '/blog', text: t('common:nav.blog') },
+];
+---
+
+<Nav>
+    <Nav.Horizontal>
+        <Fragment slot="logo"><Image src={logo} alt="Nilswg logo" fetchpriority="high" /></Fragment>
+        <Fragment slot="button"><Nav.MenuButton client:load /></Fragment>
+        <Fragment slot="items"><Nav.HorizontalItems lang={lang} navItems={navItems} client:load /></Fragment>
+    </Nav.Horizontal>
+    <Nav.Vertical client:load>
+        <Nav.VerticalItems lang={lang} navItems={navItems} client:load />
+        <Nav.SocialLinks client:load />
+    </Nav.Vertical>
+</Nav>

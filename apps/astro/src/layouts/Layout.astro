@@ -1,9 +1,9 @@
 ---
-import { t, setDefaultNamespace } from 'i18next';
-import { Navbar } from '@/components/Navbar';
+import { $pageTitle } from '@/lib/pageTitle';
+import { setDefaultNamespace, t } from 'i18next';
+import Footer from '@/components/Footer.astro';
+import Navbar from '@/components/Navbar.astro';
 import PageLoader from '@/components/PageLoader';
-import Footer from '../components/Footer.astro';
-import { $pageTitle } from '../lib/pageTitle';
 import '../index.css';
 
 setDefaultNamespace('common');
@@ -15,7 +15,7 @@ const navItems = [
     { href: '/blog', text: t('nav.blog') },
 ];
 
-const lang = t('lang');
+const lang = t('common:lang');
 const title = `Nilswg - ${$pageTitle(Astro.url.pathname)}`;
 ---
 
@@ -29,7 +29,7 @@ const title = `Nilswg - ${$pageTitle(Astro.url.pathname)}`;
         <title>{title}</title>
     </head>
     <body class="bg-slate-800">
-        <Navbar client:visible />
+        <Navbar lang={lang} />
         <main class="w-full"><slot /></main>
         <Footer />
         <PageLoader client:idle />
