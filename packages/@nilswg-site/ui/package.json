@@ -2,9 +2,13 @@
     "name": "@nilswg-site/ui",
     "main": "./index.ts",
     "peerDependencies": {
+        "@nanostores/react": "^0.7.2",
+        "@nilswg-site/hooks": "workspace:*",
         "@nilswg/utils": "workspace:*",
-        "i18next": "^23.10.1",
+        "i18next": "^23.10.0",
+        "nanostores": "^0.10.3",
         "react": "^18.2.0",
-        "react-dom": "^18.2.0"
+        "react-dom": "^18.2.0",
+        "react-icons": "^5.0.1"
     }
 }

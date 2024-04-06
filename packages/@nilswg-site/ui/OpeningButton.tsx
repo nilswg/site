@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react';
 import { useAnimations } from '@nilswg-site/hooks';
 import { CgChevronDown } from 'react-icons/cg';
@@ -7,7 +9,7 @@ type ButtonProps = {
     text: string;
 };
 
-const OpeningButton = ({ delayMS, text }: ButtonProps) => {
+export const OpeningButton = ({ delayMS, text }: ButtonProps) => {
     const [className, setClassName] = useState('opacity-0');
 
     const done = useAnimations(
@@ -28,5 +30,3 @@ const OpeningButton = ({ delayMS, text }: ButtonProps) => {
         </a>
     );
 };
-
-export default OpeningButton;

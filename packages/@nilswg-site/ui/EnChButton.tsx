@@ -1,18 +1,18 @@
-'use client';
+'use client'
 
 import type { FC, ReactNode } from 'react';
 import { useCallback, useMemo } from 'react';
-import { t } from 'i18next';
+import { cn } from '@nilswg/utils';
 
-const lang = t('common:lang');
 
 type Props_EnChButton = {
     className: string;
     children: ReactNode;
+    lang: string;
 };
 
 type EnChCompoundComponent = FC<Props_EnChButton> & {
-    CheckBox: FC<{ className: string }>;
+    CheckBox: FC<{ className: string, lang: string }>;
 };
 
 const texts = {
@@ -20,8 +20,9 @@ const texts = {
     'zh-TW': ['英', '中'],
 };
 
-export const EnChButton: EnChCompoundComponent = ({ className, children }) => {
-    const [en, ch] = useMemo(() => texts[lang as keyof typeof texts], [lang]);
+
+export const EnChButton: EnChCompoundComponent = ({ className, children, lang }) => {
+    const [en, ch] = useMemo(()=>texts[lang as keyof typeof texts],[]);
     return (
         <label className={`font-russon flex cursor-pointer items-center gap-1 px-2 py-2 ${className}`}>
             <span>{en}</span>
@@ -31,7 +32,7 @@ export const EnChButton: EnChCompoundComponent = ({ className, children }) => {
     );
 };
 
-EnChButton.CheckBox = ({ className }) => {
+EnChButton.CheckBox = ({ className, lang }) => {
     const handleLocaleChange = useCallback(() => {
         const newLang = lang === 'en' ? 'zh-TW' : 'en';
         switchLanguage(newLang);
@@ -41,11 +42,13 @@ EnChButton.CheckBox = ({ className }) => {
     return (
         <input
             type="checkbox"
-            className={`
-        box-content inline-block h-4 w-8 cursor-pointer appearance-none border border-white before:absolute before:h-4 before:w-4 before:bg-white before:transition-transform before:duration-300 before:ease-in-out before:content-[''] group-hover:border-sky-500 before:group-hover:bg-sky-500
-        ${lang === 'en' ? 'before:translate-x-0' : 'before:translate-x-[100%]'}
-        ${className}
-      `}
+            className={cn(
+                'box-content inline-block h-4 w-8 cursor-pointer appearance-none border border-white',
+                'before:absolute before:h-4 before:w-4 before:bg-white before:transition-transform',
+                'before:duration-300 before:ease-in-out before:content-[""] group-hover:border-sky-500 before:group-hover:bg-sky-500',
+                lang === 'en' ? 'before:translate-x-0' : 'before:translate-x-full',
+                className,
+            )}
             onChange={handleLocaleChange}
             checked={lang === 'en' ? true : false}
         />
