@@ -11,7 +11,7 @@
     "i18n:gen": "npx astro-i18next generate"
   },
   "dependencies": {
-    "@nilswg-site/feat": "workspace:*",
+    "@nanostores/react": "^0.7.2",
     "@nilswg-site/hooks": "workspace:*",
     "@nilswg-site/ui": "workspace:*",
     "@nilswg/i18n": "workspace:*",
@@ -21,6 +21,7 @@
     "i18next-fs-backend": "^2.3.1",
     "i18next-http-backend": "^2.5.0",
     "moment": "^2.30.1",
+    "nanostores": "^0.10.3",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "zustand": "^4.5.2"

@@ -44,9 +44,9 @@ importers:
 
   apps/astro:
     dependencies:
-      '@nilswg-site/feat':
-        specifier: workspace:*
-        version: link:../../packages/@nilswg-site/feat
+      '@nanostores/react':
+        specifier: ^0.7.2
+        version: 0.7.2(nanostores@0.10.3)(react@18.2.0)
       '@nilswg-site/hooks':
         specifier: workspace:*
         version: link:../../packages/@nilswg-site/hooks
@@ -74,6 +74,9 @@ importers:
       moment:
         specifier: ^2.30.1
         version: 2.30.1
+      nanostores:
+        specifier: ^0.10.3
+        version: 0.10.3
       react:
         specifier: ^18.2.0
         version: 18.2.0
@@ -126,24 +129,36 @@ importers:
 
   apps/next:
     dependencies:
+      '@nilswg-site/hooks':
+        specifier: workspace:*
+        version: link:../../packages/@nilswg-site/hooks
       '@nilswg-site/ui':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/@nilswg-site/ui
+      '@nilswg/i18n':
+        specifier: workspace:*
+        version: link:../../packages/@nilswg/i18n
       '@nilswg/i18n-next':
-        specifier: workspace:^
+        specifier: workspace:*
         version: link:../../packages/@nilswg/i18n-next
       next:
         specifier: 14.1.4
         version: 14.1.4(@babel/core@7.24.3)(react-dom@18.2.0)(react@18.2.0)
+      next-i18next:
+        specifier: ^15.2.0
+        version: 15.2.0(i18next@23.10.1)(next@14.1.4)(react-i18next@14.1.0)(react@18.2.0)
       react:
         specifier: ^18.2.0
         version: 18.2.0
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
-      react-i18next:
-        specifier: ^14.1.0
-        version: 14.1.0(i18next@23.10.1)(react-dom@18.2.0)(react@18.2.0)
+      react-icons:
+        specifier: ^5.0.1
+        version: 5.0.1(react@18.2.0)
+      typewriter-effect:
+        specifier: ^2.21.0
+        version: 2.21.0(react-dom@18.2.0)(react@18.2.0)
     devDependencies:
       '@types/node':
         specifier: ^20
@@ -170,36 +185,6 @@ importers:
         specifier: ^5
         version: 5.4.3
 
-  packages/@nilswg-site/feat:
-    dependencies:
-      '@nilswg-site/hooks':
-        specifier: workspace:*
-        version: link:../hooks
-      '@nilswg-site/ui':
-        specifier: workspace:*
-        version: link:../ui
-      '@nilswg/i18n':
-        specifier: workspace:*
-        version: link:../../@nilswg/i18n
-      '@nilswg/utils':
-        specifier: workspace:*
-        version: link:../../@nilswg/utils
-      next-i18next:
-        specifier: ^15.2.0
-        version: 15.2.0(i18next@23.10.1)(next@14.1.4)(react-i18next@14.1.0)(react@18.2.0)
-      react:
-        specifier: ^18.2.0
-        version: 18.2.0
-      react-dom:
-        specifier: ^18.2.0
-        version: 18.2.0(react@18.2.0)
-      react-icons:
-        specifier: ^4.3.1
-        version: 4.12.0(react@18.2.0)
-      typewriter-effect:
-        specifier: ^2.21.0
-        version: 2.21.0(react-dom@18.2.0)(react@18.2.0)
-
   packages/@nilswg-site/hooks:
     dependencies:
       react:
@@ -211,18 +196,30 @@ importers:
 
   packages/@nilswg-site/ui:
     dependencies:
+      '@nanostores/react':
+        specifier: ^0.7.2
+        version: 0.7.2(nanostores@0.10.3)(react@18.2.0)
+      '@nilswg-site/hooks':
+        specifier: workspace:*
+        version: link:../hooks
       '@nilswg/utils':
         specifier: workspace:*
         version: link:../../@nilswg/utils
       i18next:
-        specifier: ^23.10.1
+        specifier: ^23.10.0
         version: 23.10.1
+      nanostores:
+        specifier: ^0.10.3
+        version: 0.10.3
       react:
         specifier: ^18.2.0
         version: 18.2.0
       react-dom:
         specifier: ^18.2.0
         version: 18.2.0(react@18.2.0)
+      react-icons:
+        specifier: ^5.0.1
+        version: 5.0.1(react@18.2.0)
 
   packages/@nilswg/i18n:
     dependencies:
@@ -1168,6 +1165,17 @@ packages:
     dependencies:
       '@jridgewell/resolve-uri': 3.1.2
       '@jridgewell/sourcemap-codec': 1.4.15
+
+  /@nanostores/react@0.7.2(nanostores@0.10.3)(react@18.2.0):
+    resolution: {integrity: sha512-e3OhHJFv3NMSFYDgREdlAQqkyBTHJM91s31kOZ4OvZwJKdFk5BLk0MLbh51EOGUz9QGX2aCHfy1RvweSi7fgwA==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    peerDependencies:
+      nanostores: ^0.9.0 || ^0.10.0
+      react: '>=18.0.0'
+    dependencies:
+      nanostores: 0.10.3
+      react: 18.2.0
+    dev: false
 
   /@next/env@14.1.4:
     resolution: {integrity: sha512-e7X7bbn3Z6DWnDi75UWn+REgAbLEqxI8Tq2pkFOFAMpWAWApz/YCUhtWMWn410h8Q2fYiYL7Yg5OlxMOCfFjJQ==}
@@ -3715,6 +3723,11 @@ packages:
     engines: {node: ^10 || ^12 || ^13.7 || ^14 || >=15.0.1}
     hasBin: true
 
+  /nanostores@0.10.3:
+    resolution: {integrity: sha512-Nii8O1XqmawqSCf9o2aWqVxhKRN01+iue9/VEd1TiJCr9VT5XxgPFbF1Edl1XN6pwJcZRsl8Ki+z01yb/T/C2g==}
+    engines: {node: ^18.0.0 || >=20.0.0}
+    dev: false
+
   /napi-build-utils@1.0.2:
     resolution: {integrity: sha512-ONmRUqK7zj7DWX0D9ADe03wbwOBZxNAfF20PlGfCWQcD3+/MakShIHrMqx9YwPTfxDdF1zLeL+RGZiR9kGMLdg==}
     requiresBuild: true
@@ -4292,21 +4305,12 @@ packages:
       react-dom: 18.2.0(react@18.2.0)
     dev: false
 
-  /react-icons@4.12.0(react@18.2.0):
-    resolution: {integrity: sha512-IBaDuHiShdZqmfc/TwHu6+d6k2ltNCf3AszxNmjJc1KUfXdEeRJOKyNvLmAHaarhzGmTSVygNdyu8/opXv2gaw==}
-    peerDependencies:
-      react: '*'
-    dependencies:
-      react: 18.2.0
-    dev: false
-
   /react-icons@5.0.1(react@18.2.0):
     resolution: {integrity: sha512-WqLZJ4bLzlhmsvme6iFdgO8gfZP17rfjYEJ2m9RsZjZ+cc4k1hTzknEz63YS1MeT50kVzoa1Nz36f4BEx+Wigw==}
     peerDependencies:
       react: '*'
     dependencies:
       react: 18.2.0
-    dev: true
 
   /react-is@16.13.1:
     resolution: {integrity: sha512-24e6ynE2H+OKt4kqsOvNd8kBpV65zoxbA4BVsEOB3ARVWQki/DHzaUoC5KuON/BiccDaCCTZBuOcfZs70kR8bQ==}
