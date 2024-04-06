@@ -1,19 +1,19 @@
 ---
-import Layout from "@/layouts/Layout.astro";
-import { t, changeLanguage } from "i18next";
 import Opening from "@/feats/Opening.astro";
+import Layout from "@/layouts/Layout.astro";
+import { changeLanguage, t } from "i18next";
+import { DecTag } from "@/components/DecorativeTags";
 
 changeLanguage("en");
 ---
 
-<Layout title={'i18n_' + t('lang')}>
+<Layout title={'Nilswg'}>
     <div class="mt-[var(--navbar-height)]">
-        <h1 class="tags ml-4 text-xl leading-10">{'<html>'}</h1>
-        <h1 class="tags ml-6 text-xl leading-10">{'<body>'}</h1>
+        <DecTag className="ml-4 text-xl leading-10">{'<html>'}</DecTag>
+        <DecTag className="ml-6 text-xl leading-10">{'<body>'}</DecTag>
         <Opening />
-        
         <!-- <Example /> -->
-        <h1 class="tags ml-6 text-xl leading-10">{'</body>'}</h1>
-        <h1 class="tags ml-4 text-xl leading-10">{'</html>'}</h1>
+        <DecTag className="ml-6 text-xl leading-10">{'</body>'}</DecTag>
+        <DecTag className="ml-4 text-xl leading-10">{'</html>'}</DecTag>
     </div>
 </Layout>

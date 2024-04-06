@@ -12,13 +12,30 @@ export default defineConfig({
   image: {
     service: sharpImageService(),
   },
-  // vite: {
-  //   build: {
-  //     rollupOptions: {
-  //       external: ['i18next-http-backend', 'i18next-browser-languagedetector']
-  //     }
-  //   }
-  // }
+  vite: {
+    build: {
+      rollupOptions: {
+        external: [
+          'util',
+          'stream',
+          'path',
+          'fs',
+          'path',
+          'events',
+          'child_process',
+          'os',
+          'astro',
+          'astro-i18next',
+          // 'i18next',
+          // "i18next-browser-languagedetector",
+          // 'i18next-fs-backend',
+          // 'i18next-http-backend',
+          'react-icons',
+          'sharp',
+        ]
+      }
+    }
+  }
 });
 
 // function CustomHmr() {

@@ -12,7 +12,7 @@ export const SocialLinks: FCX = memo(({ className }) => {
         <ul className={cn('text-5xl text-white', className)}>
             {myLinks.map((item) => (
                 <li key={`mylink_${item.name}`} data-cy={item.name}>
-                    <Link href={item.href}>
+                    <Link href={item.href} aria-label={"link to my "+ item.name}>
                         <item.Icon />
                     </Link>
                 </li>

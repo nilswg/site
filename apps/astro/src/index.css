@@ -74,7 +74,7 @@
 }
 @layer components {
   .tags {
-    @apply font-belle text-lg text-sky-300 opacity-60 sm:text-xl;
+    @apply font-belle text-lg text-sky-400 sm:text-xl;
   }
 }
 @layer components {

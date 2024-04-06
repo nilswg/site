@@ -2,15 +2,17 @@
 
 import type { FC, ReactNode } from 'react';
 import { useCallback, useMemo } from 'react';
+import { t } from 'i18next';
+
+const lang = t('common:lang');
 
 type Props_EnChButton = {
     className: string;
     children: ReactNode;
-    lang: string;
 };
 
 type EnChCompoundComponent = FC<Props_EnChButton> & {
-    CheckBox: FC<{ className: string; lang: string }>;
+    CheckBox: FC<{ className: string }>;
 };
 
 const texts = {
@@ -18,7 +20,7 @@ const texts = {
     'zh-TW': ['英', '中'],
 };
 
-export const EnChButton: EnChCompoundComponent = ({ className, children, lang }) => {
+export const EnChButton: EnChCompoundComponent = ({ className, children }) => {
     const [en, ch] = useMemo(() => texts[lang as keyof typeof texts], [lang]);
     return (
         <label className={`font-russon flex cursor-pointer items-center gap-1 px-2 py-2 ${className}`}>
@@ -29,7 +31,7 @@ export const EnChButton: EnChCompoundComponent = ({ className, children, lang })
     );
 };
 
-EnChButton.CheckBox = ({ className, lang }) => {
+EnChButton.CheckBox = ({ className }) => {
     const handleLocaleChange = useCallback(() => {
         const newLang = lang === 'en' ? 'zh-TW' : 'en';
         switchLanguage(newLang);
@@ -64,7 +66,6 @@ function switchLanguage(language: string) {
             newPath = currentPath.split('/')[1] === 'en' ? currentPath.replace(/\/en\/?/, '/zh-TW/') : '/zh-TW' + currentPath;
             break;
     }
-
 
     // 將網頁重新導向到新的URL
     window.history.pushState({}, '', newPath); //

@@ -1,9 +1,9 @@
 ---
+import OpeningButton from '@/feats/Opening/OpeningButton';
 import { OpeningLetters } from '@nilswg-site/feat';
 import { getI18nTextArray } from '@nilswg/i18n';
 import { t } from 'i18next';
-import Typewriter from 'typewriter-effect';
-import OpeningButton from '@/feats/Opening/OpeningButton';
+import { DecTag } from '@/components/DecorativeTags';
 import { SocialLinks } from '@/components/SocialLinks';
 
 const opening = {
@@ -17,14 +17,14 @@ const opening = {
     <div class="container flex h-full w-full flex-row items-center justify-between 2xl:w-3/4">
         <div class="flex w-full justify-center">
             <div>
-                <h1 class="tags animate-fadeIn animate-delay-[3s] ml-6">{'<h1>'}</h1>
-                <OpeningLetters letters={opening.letters} waitMS={2000} client:load/>
-                <h1 class="tags animate-fadeIn animate-delay-[3s] xs:ml-3 ml-6 inline">{'</h1>'}</h1>
-                <h1 class="tags animate-fadeIn animate-delay-[3s] ml-6">{'<p>'}</h1>
+                <DecTag className="animate-fadeIn animate-delay-[3s] ml-6">{'<h1>'}</DecTag>
+                <OpeningLetters letters={opening.letters} waitMS={2000} client:idle />
+                <DecTag className="animate-fadeIn animate-delay-[3s] xs:ml-3 ml-6 inline">{'</h1>'}</DecTag>
+                <DecTag className="tags animate-fadeIn animate-delay-[3s] ml-6">{'<p>'}</DecTag>
                 <div class="font-orbitron ml-9 text-xs tracking-wide text-gray-400 sm:text-lg md:text-2xl">
-                    <div id="typewriter"></div>
+                    <div id="opening-typewriter"></div>
                 </div>
-                <h1 class="tags animate-fadeIn animate-delay-[3s] ml-6">{'</p>'}</h1>
+                <DecTag className="tags animate-fadeIn animate-delay-[3s] ml-6">{'</p>'}</DecTag>
             </div>
         </div>
         <div class="mr-4 hidden sm:block">
@@ -36,7 +36,7 @@ const opening = {
     </div>
     <script defer src="https://unpkg.com/typewriter-effect@latest/dist/core.js"></script>
     <script defer type="module" define:vars={{ opening }}>
-        var app = document.getElementById('typewriter');
+        var app = document.getElementById('opening-typewriter');
         new Typewriter(app, { loop: true, delay: 75 })
             .pauseFor(6000)
             .typeString(opening.typewriter[0])

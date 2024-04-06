@@ -1,4 +1,7 @@
+import type { HTMLAttributes } from 'astro/types';
 import type { FC, ImgHTMLAttributes } from 'react';
+import { getImage } from 'astro:assets';
+
 // import NextImage from 'next/image' // 這裡之後可以改成所用框架對應的 ImageService 元件
 // import AstroImage from 'astro:assets';
 
@@ -40,4 +43,37 @@ type Args = typeof defaultArgs;
 export type Props_Image = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'> & {
     src: string | ImageMetaData;
     fill?: boolean; // next only props
+};
+
+/**
+ * 將 Astro 的 getImage 轉換成 React 的 props
+ * @param props
+ * @returns
+ */
+export const $imageProps = async (props: Parameters<typeof getImage>[0]) => {
+    const _image = await getImage(props);
+
+    const additionalAttributes: HTMLAttributes<'img'> = {};
+    if (_image.srcSet.values.length > 0) {
+        additionalAttributes.srcset = _image.srcSet.attribute;
+    }
+
+    return {
+        src: _image.src,
+        ...additionalAttributes,
+        ..._image.attributes,
+    } as Props_Image;
+};
+
+export const $assets = async <T extends Record<string, any>>(assetsMap: T) => {
+    const res = {} as Record<keyof T, Props_Image>;
+    await Promise.all(
+        Object.keys(assetsMap).map((key) => {
+            const task = $imageProps(assetsMap[key]).then((image) => {
+                res[key as keyof T] = image;
+            });
+            return task;
+        }),
+    );
+    return res;
 };

@@ -2,20 +2,22 @@
 
 import type { FC, ReactNode } from 'react';
 import { createContext, Fragment, memo, useCallback, useContext, useState } from 'react';
-import logo from 'public/nilswg-blue-noblack.svg';
+import { cn } from '@nilswg/utils';
+import { t } from 'i18next';
+import logo from 'public/nilswg-blue-noblack-opt.svg';
 import { HiMenuAlt2, HiOutlineX } from 'react-icons/hi';
 import { EnChButton } from './EnChButton';
-import { Image } from './Image';
+import { $assets, Image } from './Image';
 import { Link } from './Link';
 import { SocialLinks } from './SocialLinks';
 
-type NavItem = { href: string; text: string };
+const assets = await $assets({
+    logo: { src: logo, alt: 'nilswg logo', width: 128, height: 45 },
+});
 
-type Props_Navbar = Pick<Props_NavContext, 'navItems' | 'lang'>;
-
-export const Navbar: FC<Props_Navbar> = ({ navItems, lang }) => {
+export const Navbar = () => {
     return (
-        <Nav navItems={navItems} lang={lang}>
+        <Nav>
             <Nav.Horizontal>
                 <Nav.HorizontalItems />
             </Nav.Horizontal>
@@ -30,8 +32,6 @@ export const Navbar: FC<Props_Navbar> = ({ navItems, lang }) => {
 type Props_NavContext = {
     isMenuOpen: boolean;
     switchMenuOpen: () => void;
-    navItems: NavItem[];
-    lang: string;
 };
 
 const NavContext = createContext<Props_NavContext | null>(null);
@@ -44,7 +44,7 @@ const useNavContext = () => {
     return ctx;
 };
 
-type NavCompoundComponent = FC<Props_Navbar & { children: ReactNode }> & {
+type NavCompoundComponent = FC<{ children: ReactNode }> & {
     Horizontal: FC<{ children: ReactNode }>;
     HorizontalItems: FC;
     Vertical: FC<{ children: ReactNode }>;
@@ -53,12 +53,12 @@ type NavCompoundComponent = FC<Props_Navbar & { children: ReactNode }> & {
     SocialLinks: FC;
 };
 
-export const Nav: NavCompoundComponent = ({ children, navItems, lang }) => {
+export const Nav: NavCompoundComponent = ({ children }) => {
     const [isMenuOpen, setIsMenuOpen] = useState(false);
     const switchMenuOpen = useCallback(() => setIsMenuOpen((s) => !s), []);
     return (
         <header className="h-navbar bg-myblack fixed top-0 z-20 w-full border-b-[1px] border-b-gray-600 text-white md:flex md:items-center md:justify-between">
-            <NavContext.Provider value={{ navItems, isMenuOpen, switchMenuOpen, lang }}>{children}</NavContext.Provider>
+            <NavContext.Provider value={{ isMenuOpen, switchMenuOpen }}>{children}</NavContext.Provider>
         </header>
     );
 };
@@ -68,7 +68,7 @@ Nav.Horizontal = ({ children }) => {
         <Fragment>
             <div className="bg-myblack flex h-full flex-row items-center justify-between px-4">
                 <Link href="/" className="flex w-28 items-center md:w-32">
-                    <Image src={logo} alt="nilswg logo" />
+                    <Image {...assets.logo} />
                 </Link>
                 <Nav.MenuButton />
             </div>
@@ -78,7 +78,6 @@ Nav.Horizontal = ({ children }) => {
 };
 
 Nav.HorizontalItems = memo(() => {
-    const { navItems, lang } = useNavContext();
     return (
         <ul className="mr-5 flex flex-row items-center justify-center">
             {navItems.map((item, i) => (
@@ -89,8 +88,8 @@ Nav.HorizontalItems = memo(() => {
                 </HorizontalItem>
             ))}
             <HorizontalItem>
-                <EnChButton lang={lang} className="text-lg">
-                    <EnChButton.CheckBox lang={lang} className="h-[16px] w-[32px] before:h-[16px] before:w-[16px]" />
+                <EnChButton className="text-lg">
+                    <EnChButton.CheckBox className="h-[16px] w-[32px] before:h-[16px] before:w-[16px]" />
                 </EnChButton>
             </HorizontalItem>
         </ul>
@@ -111,7 +110,6 @@ Nav.Vertical = ({ children }) => {
 };
 
 Nav.VerticalItems = memo(() => {
-    const { navItems, lang } = useNavContext();
     return (
         <ul className="flex h-full flex-col items-center justify-center gap-3">
             {navItems.map((item, i) => (
@@ -122,8 +120,8 @@ Nav.VerticalItems = memo(() => {
                 </VerticalItem>
             ))}
             <VerticalItem>
-                <EnChButton lang={lang} className="text-3xl">
-                    <EnChButton.CheckBox lang={lang} className="h-[2.5rem] w-[5rem] before:h-[2.5rem] before:w-[2.5rem]" />
+                <EnChButton className="text-3xl">
+                    <EnChButton.CheckBox className="h-[2.5rem] w-[5rem] before:h-[2.5rem] before:w-[2.5rem]" />
                 </EnChButton>
             </VerticalItem>
         </ul>
@@ -133,11 +131,12 @@ Nav.VerticalItems = memo(() => {
 Nav.MenuButton = () => {
     const { isMenuOpen, switchMenuOpen } = useNavContext();
     return (
-        <div className="block md:hidden">
-            <button className="align-top text-[2.75rem] transition-all md:text-[3rem]" onClick={switchMenuOpen}>
-                {isMenuOpen ? <HiOutlineX /> : <HiMenuAlt2 />}
-            </button>
-        </div>
+        <button
+            aria-label="menu button"
+            className={cn('block md:hidden', 'align-top text-[2.75rem] transition-all md:text-[3rem]')}
+            onClick={switchMenuOpen}>
+            {isMenuOpen ? <HiOutlineX /> : <HiMenuAlt2 />}
+        </button>
     );
 };
 
@@ -157,3 +156,10 @@ const VerticalItem = ({ children }: { children: ReactNode }) => {
         </li>
     );
 };
+
+const navItems = [
+    { href: '/', text: t('nav.home') },
+    { href: '/#projects', text: t('nav.projects') },
+    { href: '/#contact', text: t('nav.contact') },
+    { href: '/blog', text: t('nav.blog') },
+];
