@@ -11,7 +11,7 @@
   "about": {
     "title": "About",
     "texts": [
-      "I am a full-stack engineer with 2.5 years of development experience and a deep understanding of building web applications.",
+      "I am a full-stack engineer with <b>2.5 years</b> of development experience and a deep understanding of building web applications.",
       "In my career, I worked at a well-known shoe factory in Taichung and participated in a team of 20+ members, developing a large-scale commercial ERP system using Angular. I also have experience in game development, implementing 2D and 3D animation effects with Pixi.js and Babylon.js.",
       "As for my expertise, I prefer to use TypeScript as my primary programming language. I am well-versed in using frontend frameworks to complete user interfaces according to project requirements, independently handling backend programming to implement APIs, writing SQL to access database data, planning system architecture and deployment, and being proficient in network protocols and network security measures.",
       "I am motivated and eager to learn new technologies. So, I enjoy sharing my knowledge and have helped my team improve code quality and readability, as well as successfully helping two members obtain frontend engineer positions."
@@ -26,10 +26,10 @@
   "experience-timeline": [
     {
       "id": "work2",
-      "img": "/img/experiences/lattek.jpg",
-      "company": "Dah Lih Puh Co., Ltd",
-      "jobtitle": "Full Stack Developer",
-      "jobposition": "Senior Engineer",
+      "companyImg": "/img/experiences/lattek.jpg",
+      "companyName": "Dah Lih Puh Co., Ltd",
+      "jobTitle": "Full Stack Developer",
+      "jobPosition": "Senior Engineer",
       "location": "Taichung",
       "begintime": [2021, 12],
       "endtime": [2022, 9],
@@ -44,10 +44,10 @@
     },
     {
       "id": "work1",
-      "img": "/img/experiences/chungyo.png",
-      "company": "La Pluma Fashion Group Co., Ltd",
-      "jobtitle": "Game Program Developer",
-      "jobposition": "Assistant Engineer",
+      "companyImg": "/img/experiences/chungyo.png",
+      "companyName": "La Pluma Fashion Group Co., Ltd",
+      "jobTitle": "Game Program Developer",
+      "jobPosition": "Assistant Engineer",
       "location": "Taichung",
       "begintime": [2019, 10],
       "endtime": [2021, 3],
@@ -61,10 +61,10 @@
     },
     {
       "id": "university",
-      "img": "/img/experiences/thu.png",
-      "company": "Tung Hai University",
-      "jobtitle": "Computer Science and Information Engineering",
-      "jobposition": "Bachelor",
+      "companyImg": "/img/experiences/thu.png",
+      "companyName": "Tung Hai University",
+      "jobTitle": "Computer Science and Information Engineering",
+      "jobPosition": "Bachelor",
       "location": "Taichung",
       "begintime": [2013, 7],
       "endtime": [2017, 1],
@@ -84,7 +84,7 @@
     ]
   },
   "projects": {
-    "title": "Experience",
+    "title": "Projects",
     "texts": ["There are my side projects here."]
   },
   "contact": {

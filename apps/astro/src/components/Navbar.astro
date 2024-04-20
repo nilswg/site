@@ -2,7 +2,7 @@
 import { Nav } from '@nilswg-site/ui';
 import { Image } from 'astro:assets';
 import { t } from 'i18next';
-import logo from 'public/nilswg-blue-noblack-min.svg';
+import logo from '/public/nilswg-blue-noblack-min.svg';
 
 const lang = t('common:lang');
 
@@ -16,7 +16,7 @@ const navItems = [
 
 <Nav>
     <Nav.Horizontal>
-        <Fragment slot="logo"><Image src={logo} alt="Nilswg logo" fetchpriority="high" /></Fragment>
+        <Fragment slot="logo"><Image src={logo} alt="Nilswg logo" width={198} height={70} fetchpriority="high" loading='eager'/></Fragment>
         <Fragment slot="button"><Nav.MenuButton client:load /></Fragment>
         <Fragment slot="items"><Nav.HorizontalItems lang={lang} navItems={navItems} client:load /></Fragment>
     </Nav.Horizontal>

@@ -1,7 +1,7 @@
 'use client';
 
 import { memo, useEffect, useState } from 'react';
-import { cn } from '@/packages/@nilswg/utils';
+import { cn } from '@nilswg/utils';
 import { IoMdRocket } from 'react-icons/io';
 
 export const PageLoader = () => {

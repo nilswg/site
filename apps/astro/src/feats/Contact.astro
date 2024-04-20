@@ -1,0 +1,22 @@
+---
+import { DecTag } from '@nilswg-site/ui';
+import { ContactForm } from '@/components/ContactForm';
+import SectionTexts from '@/components/SectionTexts.astro';
+import VerticalFrame from '@/components/VerticalFrame.astro';
+---
+
+<section id="contact" class="bg-myblack w-full py-[var(--navbar-height)]">
+    <VerticalFrame>
+        <SectionTexts
+            i18nKeys={{
+                title: 'home:contact.title',
+                texts: 'home:contact.texts',
+            }}
+        />
+        <DecTag className="ml-6">{'<form>'}</DecTag>
+    </VerticalFrame>
+    <ContactForm client:load />
+    <VerticalFrame>
+        <DecTag className="ml-6">{'</form>'}</DecTag>
+    </VerticalFrame>
+</section>

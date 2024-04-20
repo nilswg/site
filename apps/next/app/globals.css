@@ -83,7 +83,7 @@
   }
   .opening-bg-image::after {
     @apply absolute -top-[5rem] z-[-1] h-full w-full -rotate-12 scale-100 animate-bounceIn bg-contain bg-[center] bg-no-repeat opacity-[5%] bg-blend-multiply content-[""] animate-duration-[1s] animate-delay-[1.5s] 2xl:scale-75;
-    background-image: url("/nilswg-blue-noblack.svg");
+    background-image: url("/nilswg-blue-noblack-min.svg");
   }
 }
 @layer components {

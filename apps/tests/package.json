@@ -1,0 +1,23 @@
+{
+    "name": "tsup-jest",
+    "type": "commonjs",
+    "version": "0.0.1",
+    "scripts": {
+        "test:cjs": "jest --verbose --config ./jest.config.cjs",
+        "test:esm": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --config ./jest.config.mjs",
+        "test": "npm run test:cjs & npm run test:esm"
+    },
+    "dependencies": {
+        "@nilswg-site/service": "workspace:*"
+    },
+    "devDependencies": {
+        "@jest/globals": "^29.7.0",
+        "@swc/core": "^1.4.7",
+        "@swc/jest": "^0.2.36",
+        "@types/jest": "^29",
+        "@types/node": "^20",
+        "@types/supertest": "^6.0.2",
+        "jest": "^29.7.0",
+        "typescript": "^5.4.2"
+    }
+}

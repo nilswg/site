@@ -1,0 +1,25 @@
+---
+import { SectionText, SectionTitle } from '@nilswg-site/ui';
+import { t } from 'i18next';
+import MyTrans from './MyTrans.astro';
+
+type Props = {
+    i18nKeys: {
+        title: string;
+        texts: string;
+    };
+};
+
+const { i18nKeys } = Astro.props as Props;
+
+const lang = t('common:lang');
+---
+
+<SectionTitle lang={lang} text={t(i18nKeys.title)} />
+<SectionText lang={lang}>
+    <p>
+        <MyTrans i18nKey={i18nKeys.texts} isArray>
+            I'm a <b class="text-white font-bold">2.5 years</b> ...
+        </MyTrans>
+    </p>
+</SectionText>

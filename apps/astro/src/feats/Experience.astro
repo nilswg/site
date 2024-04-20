@@ -1,0 +1,34 @@
+---
+import type { Experience } from '@nilswg-site/ui';
+import { DecTag, Exp } from '@nilswg-site/ui';
+import { getI18nObjects } from '@nilswg/i18n';
+import { t } from 'i18next';
+import SectionTexts from '@/components/SectionTexts.astro';
+
+const lang = t('common:lang');
+const experiences = getI18nObjects<Experience>(t, 'home:experience-timeline');
+---
+
+<section id="experience" class="bg-myblack w-full py-[var(--navbar-height)]">
+    <div class="w-full 2xl:flex 2xl:flex-row 2xl:justify-center">
+        <div class="2xl:flex 2xl:w-2/5 2xl:flex-row 2xl:justify-end">
+            <div class="max-w-3xl">
+                <SectionTexts
+                    i18nKeys={{
+                        title: 'home:experience.title',
+                        texts: 'home:experience.texts',
+                    }}
+                />
+            </div>
+        </div>
+        <div class="2xl:w-3/5 2xl:pt-10">
+            <DecTag className="ml-6 2xl:ml-[10%]">{'<timeline>'}</DecTag>
+            <div class="py-5">
+                <Exp>
+                    <Exp.TimeLine lang={lang} experiences={experiences} client:load />
+                </Exp>
+            </div>
+            <DecTag className="ml-6 2xl:ml-[10%]">{'</timeline>'}</DecTag>
+        </div>
+    </div>
+</section>

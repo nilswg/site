@@ -1,11 +1,11 @@
 ---
 import { SocialLinks } from '@nilswg-site/ui';
 import { Image } from 'astro:assets';
-import NilswgLogo from 'public/nilswg-blue-noblack.svg';
+import logo from 'public/nilswg-blue-noblack-min.svg';
 ---
 
 <footer class="h-footer flex flex-col items-center justify-center gap-6 text-white">
-    <Image src={NilswgLogo} alt="nilson weng logo for footer" height={64} />
+    <Image src={logo} alt="nilson weng logo for footer" height={64} />
     <SocialLinks className="flex flex-row gap-4 text-4xl" />
     <p class="font-zhtw text-sm tracking-wide text-gray-400">
         © <span class="text-sky-500">Nilson Weng</span> | All rights reserved 2023.

@@ -3,54 +3,41 @@ import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import astroI18next from "astro-i18next";
 import { $config } from './lib/config';
-
+import vercel from "@astrojs/vercel/serverless";
 const config = $config();
+
 
 // https://astro.build/config
 export default defineConfig({
+  output: 'hybrid',
+  adapter: vercel(),
   integrations: [react(), tailwind(), astroI18next()],
   image: {
-    service: sharpImageService(),
+    service: sharpImageService()
   },
   vite: {
     build: {
       rollupOptions: {
         external: [
           'util',
-          'stream',
-          'path',
-          'fs',
-          'path',
-          'events',
-          'child_process',
-          'os',
-          'astro',
-          'astro-i18next',
+          'stream', 'path', 'fs', 'path', 'events', 'child_process', 'os', 'astro', 'astro-i18next',
           // 'i18next',
           // "i18next-browser-languagedetector",
           // 'i18next-fs-backend',
           // 'i18next-http-backend',
-          'react-icons',
-          'sharp',
-        ]
+          'react-icons', 'sharp'],
+        /**
+         *  @see https://github.com/vitejs/vite/issues/15012
+         *  ignore the "use client" warnings in the first place
+         */
+        onLog: (level, log, handler) => {
+          if (log?.cause?.message === `Can't resolve original location of error.`) {
+            return
+          }
+          handler(level, log)
+        }
       }
     }
-  }
+  },
+  adapter: vercel()
 });
-
-// function CustomHmr() {
-//   return {
-//     name: 'custom-hmr',
-//     enforce: 'post',
-//     // HMR
-//     handleHotUpdate({ file, server }) {
-//       if (file.endsWith('.json')) {
-//         console.log('reloading json file...');
-//         server.ws.send({
-//           type: 'full-reload',
-//           path: '*'
-//         });
-//       }
-//     },
-//   }
-// }

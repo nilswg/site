@@ -1,0 +1,32 @@
+---
+import { Project } from '@nilswg-site/ui';
+import { Image } from 'astro:assets';
+
+type Props = {
+    tags: string[];
+    title: string;
+    description: string;
+    demo: string;
+    github: string;
+    preview: {
+        src: string;
+        alt: string;
+        width: number;
+        height: number;
+    };
+};
+
+const { tags, title, description, demo, github, preview } = Astro.props;
+---
+
+<Project client:load>
+    <Project.Preview>
+        <Image class="object-fill" {...preview} />
+    </Project.Preview>
+    <Project.Content>
+        <Project.Links demo={demo} github={github} />
+        <Project.Title>{title}</Project.Title>
+        <Project.Desc>{description}</Project.Desc>
+        <Project.Tags title={title} tags={tags} />
+    </Project.Content>
+</Project>

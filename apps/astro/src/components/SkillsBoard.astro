@@ -1,0 +1,17 @@
+---
+import { SkillsContainer, MySkills, Skill } from '@nilswg-site/ui';
+import { Image } from 'astro:assets';
+---
+
+<SkillsContainer>
+    {
+        MySkills.map(({ id, img }) => (
+            <Skill client:load>
+                <Skill.Image>
+                    <Image src={img} alt={`skill ${id} image`} width={64} height={64} />
+                </Skill.Image>
+                <Skill.Text id={id} />
+            </Skill>
+        ))
+    }
+</SkillsContainer>

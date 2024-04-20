@@ -1,5 +1,4 @@
 import { t } from 'i18next';
-import { MyTrans } from './Trans';
 
 const defaultLocale = 'en';
 
@@ -45,5 +44,3 @@ export const useI18n = (...args: Parameters<typeof useTranslation>) => {
       }
     }
 };
-
-export const Trans = MyTrans;

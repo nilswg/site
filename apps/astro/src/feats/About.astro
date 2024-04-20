@@ -1,0 +1,32 @@
+---
+import { DecTag } from '@nilswg-site/ui';
+import { Image } from 'astro:assets';
+import SectionTexts from '@/components/SectionTexts.astro';
+import AboutImage from '/public/img/hero2.jpg';
+---
+
+<section id="about" class={`mt-[var(--navbar-height)] w-full bg-myblack py-[var(--navbar-height)]`}>
+    <div class="w-full 2xl:flex 2xl:flex-row 2xl:justify-center">
+        <div class="2xl:flex 2xl:w-2/5 2xl:flex-row 2xl:justify-end">
+            <div class="w-full max-w-3xl">
+                <div>
+                    <SectionTexts
+                        i18nKeys={{
+                            title: 'home:about.title',
+                            texts: 'home:about.texts',
+                        }}
+                    />
+                </div>
+            </div>
+        </div>
+        <div class="2xl:w-3/5 2xl:pt-10">
+            <DecTag className="ml-6 2xl:ml-[25%]">{'<img src="me">'}</DecTag>
+            <div class="flex justify-center px-9">
+                <div class="max-w-md">
+                    <Image class="blob-mask" src={AboutImage} alt="about image" width={420} />
+                </div>
+            </div>
+            <DecTag className="ml-6 2xl:ml-[25%]">{'</img>'}</DecTag>
+        </div>
+    </div>
+</section>

@@ -1,0 +1,28 @@
+---
+import { getI18nText, getI18nTextArray } from '@nilswg/i18n';
+import { t } from 'i18next';
+import { interpolate } from './interpolate';
+
+const referenceString = await Astro.slots.render('default');
+
+export interface Props {
+    i18nKey: string;
+    isArray?: boolean;
+}
+
+const { i18nKey, isArray } = Astro.props;
+const text = isArray ? getI18nTextArray(t, i18nKey) : getI18nText(t, i18nKey);
+---
+
+{
+    Array.isArray(text) ? (
+        <Fragment
+            set:html={text.reduce((res, cur) => {
+                res.push(interpolate(cur, referenceString));
+                return res;
+            }, [] as string[]).join('')}
+        />
+    ) : (
+        <Fragment set:html={interpolate(text, referenceString)} />
+    )
+}

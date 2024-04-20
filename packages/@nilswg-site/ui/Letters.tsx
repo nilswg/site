@@ -15,7 +15,7 @@ export const OpeningLetters: FCX<Props_OpeningLetters> = memo(({ letters, waitMS
             {letters.map((line, idx) => (
                 <Fragment key={idx}>
                     <Line
-                        str={line}
+                        letters={line}
                         className={idx < letters.length - 1 ? 'mb-1 ml-9' : 'ml-9'}
                         startIdx={idx > 0 ? letters[idx - 1].length : 0}
                     />
@@ -26,7 +26,7 @@ export const OpeningLetters: FCX<Props_OpeningLetters> = memo(({ letters, waitMS
     );
 });
 
-const Line: FCX<{ str: string; startIdx: number }> = memo(({ className, str, startIdx = 0 }) => {
+const Line: FCX<{ letters: string; startIdx?: number }> = memo(({ className, letters, startIdx = 0 }) => {
     const { waitMS } = useContext(LettersContext);
     return (
         <span
@@ -35,8 +35,8 @@ const Line: FCX<{ str: string; startIdx: number }> = memo(({ className, str, sta
                 'xs:text-2xl sm:text-4xl md:text-5xl lg:text-6xl xl:text-7xl',
                 className,
             )}
-            data-cy={str}>
-            {str.split('').map((char, i) => {
+            data-cy={letters}>
+            {letters.split('').map((char, i) => {
                 const index = startIdx + i;
                 if (char === ' ') {
                     return <span key={index}>&nbsp;</span>;
@@ -46,6 +46,7 @@ const Line: FCX<{ str: string; startIdx: number }> = memo(({ className, str, sta
         </span>
     );
 });
+export const LettersZone = Line;
 
 const Letter: FC<{ char: string; startMs: number }> = ({ char, startMs = 0 }) => {
     const [enable, setEnable] = useState(false);

@@ -8,6 +8,9 @@ export default withAnimations({
 	],
 	theme: {
 		extend: {
+			spacing: {
+				navbar: 'var(--navbar-height)',
+			},
 			colors: {
 				myblack: 'rgb(28 29 37)'
 			},

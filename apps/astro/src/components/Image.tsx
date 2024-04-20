@@ -42,7 +42,6 @@ const isImageMetaData = (src: string | ImageMetaData): src is ImageMetaData => {
 type Args = typeof defaultArgs;
 export type Props_Image = Omit<ImgHTMLAttributes<HTMLImageElement>, 'src'> & {
     src: string | ImageMetaData;
-    fill?: boolean; // next only props
 };
 
 /**

@@ -1,0 +1,7 @@
+{
+    "name": "@nilswg-site/service",
+    "main": "./index.ts",
+    "peerDependencies": {
+        "zod": "^3"
+    }
+}

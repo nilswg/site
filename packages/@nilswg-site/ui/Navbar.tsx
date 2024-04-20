@@ -27,9 +27,9 @@ const useNavContext = () => {
 
 type NavCompoundComponent = FC<{ children: ReactNode }> & {
     Horizontal: FC<{ logo: ReactNode; button: ReactNode; items: ReactNode }>;
-    HorizontalItems: FC<{ lang: string; navItems: NavItem[] }>;
+    HorizontalItems: FC<{ lang: string; navItems: NavItem[]; useDefault?:boolean }>;
     Vertical: FC<{ children: ReactNode }>;
-    VerticalItems: FC<{ lang: string; navItems: NavItem[] }>;
+    VerticalItems: FC<{ lang: string; navItems: NavItem[]; useDefault?:boolean }>;
     MenuButton: FC;
     SocialLinks: FC;
 };
@@ -56,7 +56,7 @@ Nav.Horizontal = ({ logo, button, items }) => {
     );
 };
 
-Nav.HorizontalItems = memo(({ lang, navItems }) => {
+Nav.HorizontalItems = memo(({ lang, navItems, useDefault=false }) => {
     return (
         <ul className="mr-5 flex flex-row items-center justify-center">
             {navItems.map((item, i) => (
@@ -68,7 +68,7 @@ Nav.HorizontalItems = memo(({ lang, navItems }) => {
             ))}
             <HorizontalItem>
                 <EnChButton lang={lang} className="text-lg">
-                    <EnChButton.CheckBox lang={lang} className="" />
+                    <EnChButton.CheckBox lang={lang} useDefault={useDefault} className=""/>
                 </EnChButton>
             </HorizontalItem>
         </ul>
@@ -88,7 +88,7 @@ Nav.Vertical = ({ children }) => {
     );
 };
 
-Nav.VerticalItems = memo(({ lang, navItems }) => {
+Nav.VerticalItems = memo(({ lang, navItems, useDefault=false }) => {
     return (
         <ul className="flex h-full flex-col items-center justify-center gap-3">
             {navItems.map((item, i) => (
@@ -100,7 +100,7 @@ Nav.VerticalItems = memo(({ lang, navItems }) => {
             ))}
             <VerticalItem>
                 <EnChButton lang={lang} className="text-3xl">
-                    <EnChButton.CheckBox lang={lang} className="h-[2.5rem] w-[5rem] before:h-[2.5rem] before:w-[2.5rem]" />
+                    <EnChButton.CheckBox lang={lang} useDefault={useDefault} className="h-[2.5rem] w-[5rem] before:h-[2.5rem] before:w-[2.5rem]" />
                 </EnChButton>
             </VerticalItem>
         </ul>
