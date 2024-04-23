@@ -1,8 +1,8 @@
 import { initI18n } from '@/i18n';
+import { PageLoader, Toasts } from '@nilswg-site/ui';
+import { Footer } from '@/components/Footer';
 import { I18nProvider } from '@/components/I18nProvider';
 import { Navbar } from '@/components/Navbar';
-import { Footer } from '@/components/Footer';
-import { PageLoader } from '@nilswg-site/ui';
 
 export async function Layout({ lang, namespaces, children }: { lang: string; namespaces: string[]; children: React.ReactNode }) {
     const { resources } = await initI18n(lang, namespaces);
@@ -12,6 +12,7 @@ export async function Layout({ lang, namespaces, children }: { lang: string; nam
             <main className="w-full">{children}</main>
             <Footer />
             <PageLoader />
+            <Toasts />
         </I18nProvider>
     );
 }

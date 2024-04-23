@@ -21,7 +21,7 @@
     "success": "Your email has been sent successfully.",
     "error": "Sending email failed",
     "wrong_password": "Wrong Password",
-    "locale_invalid_string":"Invalid or empty locale",
+    "lang_invalid_string":"Invalid or empty locale",
     "password_invalid_string":"Invalid or empty password"
   },
   "enter_password": "Enter Password",

@@ -1,24 +1,61 @@
 'use client';
 
-import { useCallback, useEffect, useRef, useState } from 'react';
-import { useToasts } from './stores/toasts';
+import { FC, Fragment, memo, useCallback, useEffect, useRef, useState } from 'react';
 import { HiOutlineX } from 'react-icons/hi';
-export * from './stores/toasts'
+import { useToasts } from './stores/toasts';
 
-const Close = () => (
-    <>
-        <span id="toast-close" className="sr-only">
-            Close
-        </span>
-        <span className="text-[1.25rem]">
-            <HiOutlineX />
-        </span>
-    </>
-);
+export * from './stores/toasts';
 
+export const Toasts: FC = memo(() => {
+    const { $toasts } = useToasts();
+    return (
+        <div className="fixed right-3 top-20 z-20 w-[20rem]">
+            {$toasts().map((e) => (
+                <Toast key={e.id} id={e.id} type={e.type} text={e.text} />
+            ))}
+        </div>
+    );
+});
+
+export const Toast: FC<Props_Toast> = ({ id, type, text }) => {
+    const { removeToast } = useToasts();
+    const [anim, setAnim] = useState('animate-slideInRight animate-duration-300');
+    const timeout = useRef<NodeJS.Timeout | null>(null);
+
+    const onClick = useCallback(() => {
+        setAnim('animate-fadeOutRight animate-duration-300');
+        if (timeout.current !== null) clearTimeout(timeout.current);
+        timeout.current = setTimeout(() => removeToast(id), 300);
+    }, [removeToast]);
+
+    useEffect(() => {
+        timeout.current = setTimeout(() => onClick(), 5000);
+        return () => {
+            if (timeout.current !== null) {
+                clearTimeout(timeout.current);
+            }
+        };
+    }, []);
+
+    return (
+        <div className={`transition-all ${anim}`}>
+            <ToastContent type={type} text={text} onClick={onClick} />
+        </div>
+    );
+};
+
+type Props_Toast = {
+    id: string;
+    type: ToastType;
+    text: string;
+};
 type ToastType = 'error' | 'warn' | 'info' | 'success';
 
-const getToastContent = (type: ToastType, text: string, onClick: () => void) => {
+const ToastContent: FC<{
+    type: ToastType;
+    text: string;
+    onClick: () => void;
+}> = ({ type, text, onClick }) => {
     const toastStyles = {
         error: {
             bgColor: 'bg-red-500',
@@ -60,44 +97,13 @@ const getToastContent = (type: ToastType, text: string, onClick: () => void) => 
     );
 };
 
-type ToastProps = {
-    id: string;
-    type: ToastType;
-    text: string;
-};
-const Toast = ({ id, type, text }: ToastProps) => {
-    const { removeToast } = useToasts();
-    const [anim, setAnim] = useState('animate-slideInRight animate-duration-300');
-    const timeout = useRef<NodeJS.Timeout | null>(null);
-
-    const onClick = useCallback(() => {
-        setAnim('animate-fadeOutRight animate-duration-300');
-        if (timeout.current !== null) clearTimeout(timeout.current);
-        timeout.current = setTimeout(() => removeToast(id), 300);
-    }, [removeToast]);
-
-    useEffect(() => {
-        timeout.current = setTimeout(() => onClick(), 5000);
-
-        return () => {
-            if (timeout.current !== null) {
-                clearTimeout(timeout.current);
-            }
-        };
-    }, []);
-
-    return <div className={`transition-all ${anim}`}>{getToastContent(type, text, onClick)}</div>;
-};
-
-const Toasts = () => {
-    const { $toasts } = useToasts();
-    return (
-        <div className="fixed right-3 top-20 z-20 w-[20rem]">
-            {$toasts().map((e) => (
-                <Toast key={e.id} id={e.id} type={e.type} text={e.text} />
-            ))}
-        </div>
-    );
-};
-
-export default Toasts;
+const Close: FC = () => (
+    <Fragment>
+        <span id="toast-close" className="sr-only">
+            Close
+        </span>
+        <span className="text-[1.25rem]">
+            <HiOutlineX />
+        </span>
+    </Fragment>
+);

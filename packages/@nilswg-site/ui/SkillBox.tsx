@@ -1,5 +1,4 @@
-import type { ComponentType, FC, ReactNode } from 'react';
-import { memo } from 'react';
+import type { FC, ReactNode } from 'react';
 import { FlipAnimation } from './FlipAnimation';
 
 type SkillCC = FC<{ children: ReactNode }> & {

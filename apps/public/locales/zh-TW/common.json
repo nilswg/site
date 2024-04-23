@@ -21,7 +21,7 @@
     "success": "你的信件已順利寄出!",
     "error": "信件寄送失敗",
     "wrong_password": "密碼錯誤",
-    "locale_invalid_string": "請提供正確的語言",
+    "lang_invalid_string": "請提供正確的語言",
     "password_invalid_string": "請提供正確的密碼"
   },
   "enter_password": "請輸入密碼",

@@ -3,8 +3,8 @@
 import type { FC, FCX, ReactNode } from 'react';
 import { memo, useMemo, useState } from 'react';
 import { cn } from '@nilswg/utils';
-import getJobDate from './utils/getJobDate';
-import getJobTenure from './utils/getJobTenure';
+import { getJobDate } from './utils/getJobDate';
+import { getJobTenure } from './utils/getJobTenure';
 
 export type Experience = {
     id: string;

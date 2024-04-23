@@ -1,28 +1,24 @@
-import { memo, useCallback, useMemo } from 'react';
+import type { FC } from 'react';
+import { memo, useCallback } from 'react';
 import { Form, useForm, useSendLineMessage } from '@nilswg-site/ui';
-import { getI18nObjects, getI18nText } from '@nilswg/i18n';
 import { cn } from '@nilswg/utils';
-import { useTranslation } from './useI18n';
 
-export const ContactForm = memo(() => {
-    const { t } = useTranslation();
-    const { setName, setEmail, setTopic, setMessage } = useForm();
-    const fontStyles = getI18nText(t, 'common:fontStyles');
-    const { send } = useSendLineMessage();
-
-    const fields = useMemo(() => {
-        return {
-            name: getI18nText(t, 'home:contact.fields.name'),
-            email: getI18nText(t, 'home:contact.fields.email'),
-            topic: getI18nText(t, 'home:contact.fields.topic'),
-            message: getI18nText(t, 'home:contact.fields.message'),
-            send: t('home:contact.send', { defaultValue: 'SEND' }),
-            select: {
-                choose: getI18nText(t, 'home:contact.topics.choose'),
-                options: getI18nObjects<{ id: string; text: string }>(t, 'home:contact.topics.options'),
-            },
+export const ContactForm: FC<{
+    fields: {
+        name: string;
+        email: string;
+        topic: string;
+        message: string;
+        send: string;
+        select: {
+            choose: string;
+            options: { id: string; text: string }[];
         };
-    }, []);
+    };
+    fontStyles: string;
+}> = memo(({ fields, fontStyles }) => {
+    const { setName, setEmail, setTopic, setMessage } = useForm();
+    const { send } = useSendLineMessage();
 
     const onSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();

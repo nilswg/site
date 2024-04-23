@@ -3,7 +3,7 @@ type JobTime = number[]
 /**
  * 範例: getJobTenure( [2009, 03], [2012, 10] )
  */
-function getJobTenure(st: JobTime = [], ed: JobTime = [], lang: string = 'en') {
+export function getJobTenure(st: JobTime = [], ed: JobTime = [], lang: string = 'en') {
   if (!st.length || !ed.length) return ''
   /**
    * 從工作截止月(ed)減去工作起始月(st)
@@ -49,5 +49,3 @@ function getJobTenure(st: JobTime = [], ed: JobTime = [], lang: string = 'en') {
     )
   }
 }
-
-export default getJobTenure

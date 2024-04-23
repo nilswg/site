@@ -1,8 +1,24 @@
 ---
 import { DecTag } from '@nilswg-site/ui';
+import { getI18nObjects, getI18nText } from '@nilswg/i18n';
+import { t } from 'i18next';
 import { ContactForm } from '@/components/ContactForm';
 import SectionTexts from '@/components/SectionTexts.astro';
 import VerticalFrame from '@/components/VerticalFrame.astro';
+
+const fields = {
+    name: getI18nText(t, 'home:contact.fields.name'),
+    email: getI18nText(t, 'home:contact.fields.email'),
+    topic: getI18nText(t, 'home:contact.fields.topic'),
+    message: getI18nText(t, 'home:contact.fields.message'),
+    send: t('home:contact.send', { defaultValue: 'SEND' }),
+    select: {
+        choose: getI18nText(t, 'home:contact.topics.choose'),
+        options: getI18nObjects<{ id: string; text: string }>(t, 'home:contact.topics.options'),
+    },
+};
+
+const fontStyles = getI18nText(t, 'common:fontStyles');
 ---
 
 <section id="contact" class="bg-myblack w-full py-[var(--navbar-height)]">
@@ -15,7 +31,7 @@ import VerticalFrame from '@/components/VerticalFrame.astro';
         />
         <DecTag className="ml-6">{'<form>'}</DecTag>
     </VerticalFrame>
-    <ContactForm client:load />
+    <ContactForm fields={fields} fontStyles={fontStyles} client:load />
     <VerticalFrame>
         <DecTag className="ml-6">{'</form>'}</DecTag>
     </VerticalFrame>

@@ -14,7 +14,7 @@ const Context = createContext<{
     onTypeChange: () => {},
 });
 
-const ToastsDebugger = () => {
+export const ToastsDebugger: FC = memo(() => {
     return (
         <DebuggerProvider>
             <div className="fixed left-3 top-20 z-20 w-[20rem]">
@@ -32,7 +32,7 @@ const ToastsDebugger = () => {
             </div>
         </DebuggerProvider>
     );
-};
+});
 
 const Label = ({ children }: { children: string }) => {
     return <label className="inline-block w-10">{children}</label>;
@@ -87,5 +87,3 @@ const DebuggerProvider = ({ children }: { children: React.ReactNode }) => {
         </Context.Provider>
     );
 };
-
-export default ToastsDebugger;

@@ -1,11 +1,9 @@
 ---
 import { $pageTitle } from '@/lib/pageTitle';
-import { PageLoader } from '@nilswg-site/ui';
-import Toasts from '@nilswg-site/ui/Toasts';
+import { PageLoader, Toasts } from '@nilswg-site/ui';
 import { setDefaultNamespace, t } from 'i18next';
 import Footer from '@/components/Footer.astro';
 import Navbar from '@/components/Navbar.astro';
-// import ToastsDebugger from '@nilswg-site/ui/ToastsDebugger';
 import '../index.css';
 
 setDefaultNamespace('common');
@@ -32,6 +30,5 @@ const title = `Nilswg - ${$pageTitle(Astro.url.pathname)}`;
         <Footer />
         <PageLoader client:idle />
         <Toasts client:load />
-        <!-- <ToastsDebugger client:load /> -->
     </body>
 </html>

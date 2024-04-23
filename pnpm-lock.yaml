@@ -203,6 +203,8 @@ importers:
         specifier: ^5
         version: 5.4.3
 
+  apps/puppeteer: {}
+
   apps/tests:
     dependencies:
       '@nilswg-site/service':
@@ -263,9 +265,6 @@ importers:
       animated-tailwindcss:
         specifier: ^4
         version: 4.0.0(postcss@8.4.38)(tailwindcss@3.4.3)
-      i18next:
-        specifier: ^23.10
-        version: 23.10.1
       moment:
         specifier: ^2.30
         version: 2.30.1
@@ -281,6 +280,10 @@ importers:
       react-icons:
         specifier: ^5
         version: 5.0.1(react@18.2.0)
+    devDependencies:
+      i18next:
+        specifier: ^23.10
+        version: 23.10.1
 
   packages/@nilswg/i18n:
     dependencies:
@@ -812,7 +815,6 @@ packages:
     engines: {node: '>=6.9.0'}
     dependencies:
       regenerator-runtime: 0.14.1
-    dev: false
 
   /@babel/template@7.24.0:
     resolution: {integrity: sha512-Bkf2q8lMB0AFpX0NFEqSbx1OkTHf0f+0j82mkw+ZpzBnkk7e9Ql0891vlfgi+kHwOk8tQjiQHpqh4LaSa0fKEA==}
@@ -3873,7 +3875,6 @@ packages:
     resolution: {integrity: sha512-NDiIzFbcs3O9PXpfhkjyf7WdqFn5Vq6mhzhtkXzj51aOcNuPNcTwuYNuXCpHsanZGHlHKL35G7huoFeVic1hng==}
     dependencies:
       '@babel/runtime': 7.24.1
-    dev: false
 
   /ieee754@1.2.1:
     resolution: {integrity: sha512-dcyqhDvX1C46lXZcVqCpK+FtMRQVdIMN6/Df5js2zouUsqG7I6sFxitIC+7KYK29KdXOLHdu9zL4sFnoVQnqaA==}
@@ -5743,7 +5744,6 @@ packages:
 
   /regenerator-runtime@0.14.1:
     resolution: {integrity: sha512-dYnhHh0nJoMfnkZs6GmmhFknAGRrLznOu5nc9ML+EJxGvrx6H7teuevqVqCuPcPK//3eDrrjQhehXVx9cnkGdw==}
-    dev: false
 
   /rehype-parse@9.0.0:
     resolution: {integrity: sha512-WG7nfvmWWkCR++KEkZevZb/uw41E8TsH4DsY9UxsTbIXCVGbAs4S+r8FrQ+OtH5EEQAs+5UxKC42VinkmpA1Yw==}
