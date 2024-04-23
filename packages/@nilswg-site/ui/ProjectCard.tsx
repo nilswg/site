@@ -103,7 +103,7 @@ Project.Tags = ({ title, tags }) => (
     <div className="h-[2.5rem] overflow-hidden pt-2 sm:h-[6rem] ">
         <div className="flex flex-wrap">
             {tags.map((tag, i) => (
-                <ProjectTag key={title} text={tag} />
+                <ProjectTag key={title+'_'+tag} text={tag} />
             ))}
         </div>
     </div>

@@ -9,7 +9,7 @@ import { Image } from './Image';
 export const ProjectCardList = memo(() => {
     return (
         <Fragment>
-            {ProjectsList.map((proj) => (
+            {ProjectsList.map((proj, i) => (
                 <ProjectCard
                     tags={proj.tags}
                     title={proj.title}
