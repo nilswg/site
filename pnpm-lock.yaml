@@ -210,6 +210,9 @@ importers:
       '@nilswg-site/service':
         specifier: workspace:*
         version: link:../../packages/@nilswg-site/service
+      '@nilswg-site/ui':
+        specifier: workspace:*
+        version: link:../../packages/@nilswg-site/ui
     devDependencies:
       '@jest/globals':
         specifier: ^29.7.0

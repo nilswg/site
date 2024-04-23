@@ -21,7 +21,7 @@ const chMonthssDict = <{ [x: string]: string }>{
  * [2019, 8] -> Oct 2019
  */
 export const getJobDate = (date: number[] = [], lang: string = 'en') => {
-    if (!date.length) return '';
+    if (!date?.length) return '';
     if (lang !== 'en') {
         const m = moment(date, 'YYYY-MM');
         const yy = m.format('YYYY');

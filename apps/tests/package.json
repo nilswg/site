@@ -5,10 +5,11 @@
     "scripts": {
         "test:cjs": "jest --verbose --config ./jest.config.cjs",
         "test:esm": "NODE_OPTIONS=--experimental-vm-modules jest --verbose --config ./jest.config.mjs",
-        "test": "npm run test:cjs & npm run test:esm"
+        "test": "npm run test:esm && npm run test:cjs"
     },
     "dependencies": {
-        "@nilswg-site/service": "workspace:*"
+        "@nilswg-site/service": "workspace:*",
+        "@nilswg-site/ui": "workspace:*"
     },
     "devDependencies": {
         "@jest/globals": "^29.7.0",

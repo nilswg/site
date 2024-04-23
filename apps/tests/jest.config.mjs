@@ -1,5 +1,5 @@
 export default {
-    testMatch: ['**/__tests__/*.test.ts', '**/__tests__/esm/*.test.ts'],
+    testMatch: ['**/__tests__/esm/*.test.ts'],
     moduleNameMapper: {
         '^@/(.*)$': '<rootDir>/__tests__/$1',
     },
