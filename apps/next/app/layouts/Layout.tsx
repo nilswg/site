@@ -1,4 +1,3 @@
-import { initI18n } from '@/i18n';
 import WithI18n from '@/layouts/withI18n';
 import { PageLoader, Toasts } from '@nilswg-site/ui';
 import { Footer } from '@/components/Footer';

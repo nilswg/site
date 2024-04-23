@@ -1,0 +1,20 @@
+---
+import Layout from "@/layouts/Layout.astro";
+import { CommingSoon, CommingSoonTexts } from "@nilswg-site/ui";
+import { changeLanguage, t } from "i18next";
+
+changeLanguage("en");
+
+const texts = {
+    underConstructionText: t("common:website_under_construction"),
+    comingSoonText: t("common:coming_soon"),
+};
+---
+
+<Layout title="Resume">
+    <div class="mt-[5rem] w-full">
+        <CommingSoon>
+            <CommingSoonTexts texts={texts} />
+        </CommingSoon>
+    </div>
+</Layout>
