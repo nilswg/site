@@ -1,0 +1,13 @@
+---
+import { changeLanguage } from "i18next";
+import Layout from "@/layouts/Layout.astro";
+import MyResume from "@/components/MyResume.astro";
+
+changeLanguage("zh-TW");
+---
+
+<Layout title="Resume">
+    <div class="mt-[5rem] w-full">
+        <MyResume />
+    </div>
+</Layout>

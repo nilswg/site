@@ -1,3 +1,5 @@
+'use client';
+
 import { useMemo } from 'react';
 import { useStore } from '@nanostores/react';
 import { map } from 'nanostores';

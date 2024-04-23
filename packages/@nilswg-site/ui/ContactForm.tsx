@@ -7,68 +7,7 @@ import { cn } from '@nilswg/utils';
 import { t } from 'i18next';
 import { atom, map } from 'nanostores';
 import { CgMail, CgSpinner } from 'react-icons/cg';
-import { useToasts } from './Toasts';
-
-// export const ContactForm = memo(() => {
-//     const { t } = useTranslation();
-//     const { setName, setEmail, setTopic, setMessage } = useForm();
-//     const fontStyles = getI18nText(t, 'common:fontStyles');
-
-//     const fields = useMemo(() => {
-//         return {
-//             name: getI18nText(t, 'home:contact.fields.name'),
-//             email: getI18nText(t, 'home:contact.fields.email'),
-//             topic: getI18nText(t, 'home:contact.fields.topic'),
-//             message: getI18nText(t, 'home:contact.fields.message'),
-//             send: t('home:contact.send', { defaultValue: 'SEND' }),
-//             select: {
-//                 choose: getI18nText(t, 'home:contact.topics.choose'),
-//                 options: getI18nObjects<{ id: string; text: string }>(t, 'home:contact.topics.options'),
-//             },
-//         };
-//     }, []);
-
-//     return (
-//         <Form>
-//             <ul className={cn('contact-aufofill flex flex-col gap-8 py-8 text-sm sm:text-lg', fontStyles)}>
-//                 <li className="flex flex-col gap-8 sm:flex-row sm:gap-2">
-//                     <Form.Field>
-//                         <Form.Input type="text" name="name" minLength={3} onChange={setName} />
-//                         <Form.Label>{fields.name}</Form.Label>
-//                     </Form.Field>
-//                     <Form.Field>
-//                         <Form.Input type="email" name="email" minLength={8} onChange={setEmail} />
-//                         <Form.Label>{fields.email}</Form.Label>
-//                     </Form.Field>
-//                 </li>
-//                 <li>
-//                     <Form.Field>
-//                         <Form.Select name="topic" onChange={setTopic} defaultValue={fields.select.choose}>
-//                             <option disabled className="bg-myblack text-gray-400">
-//                                 {fields.select.choose}
-//                             </option>
-//                             {fields.select.options.map((option) => (
-//                                 <option key={option.id} value={option.id} className="bg-myblack text-sky-400">
-//                                     {option.text}
-//                                 </option>
-//                             ))}
-//                         </Form.Select>
-//                         <Form.Label>{fields.topic}</Form.Label>
-//                     </Form.Field>
-//                 </li>
-//                 <li>
-//                     <Form.Field>
-//                         <Form.TextArea name={'message'} minLength={10} onChange={setMessage} />
-//                         <Form.Label className="peer-placeholder-shown:top-6">{fields.message}</Form.Label>
-//                     </Form.Field>
-//                 </li>
-//                 <li className="self-center sm:self-end">
-//                     <Form.SendButton text={fields.send} />
-//                 </li>
-//             </ul>
-//         </Form>
-//     );
-// });
+import { useToasts } from './stores/toasts';
 
 type FormCompound = FC<{ children: ReactNode; onSubmit?: (e: React.SyntheticEvent<HTMLFormElement>) => void }> & {
     Field: FC<{ children: ReactNode }>;
@@ -90,65 +29,6 @@ type FormCompound = FC<{ children: ReactNode; onSubmit?: (e: React.SyntheticEven
 };
 
 export const Form: FormCompound = ({ children, onSubmit }) => {
-    // const { setMessage, setLoading } = useForm();
-    // const { addToast } = useToasts();
-    // const onSubmit = useCallback(async (e: React.SyntheticEvent<HTMLFormElement>) => {
-    //     e.preventDefault();
-    //     setLoading(true);
-
-    //     try {
-    //         const data = await sendLineMessage(new FormData(e.currentTarget));
-
-    //         /**
-    //          * 伺服器回報錯誤，顯示該錯誤
-    //          */
-    //         if (data.errors) {
-    //             /**
-    //              * 如果有在字典檔中查找到對應的訊息，就警示訊息，
-    //              * 反之，表示為例外錯誤狀況，顯示錯誤訊息。
-    //              */
-    //             const zodError = t(`common:errorDict.${data.errors}`, {
-    //                 defaultValue: '',
-    //             });
-
-    //             if (zodError !== '') {
-    //                 console.log('[ZodError]', zodError);
-    //                 addToast({ type: 'warn', text: zodError });
-    //             } else {
-    //                 console.log('[ServerError]', data.errors);
-    //                 addToast({ type: 'error', text: t('common:errorDict.error') });
-    //             }
-    //             setLoading(false);
-    //             return;
-    //         }
-
-    //         /**
-    //          * 正確訊息
-    //          */
-    //         if (data.message === 'ok') {
-    //             addToast({ type: 'success', text: t('common:errorDict.success') });
-    //             setLoading(false);
-    //             // clear message field
-    //             // setMessage({ target: { value: '' } } as any);
-    //             // page reload
-    //             setTimeout(() => window.location.reload(), 1000);
-    //             return;
-    //         }
-
-    //         /**
-    //          * 例外狀況
-    //          */
-    //         throw new Error('exception');
-    //     } catch (error: any) {
-    //         /**
-    //          * 處理前台語法錯誤
-    //          */
-    //         console.log('[ERROR]', error.message);
-    //         addToast({ type: 'error', text: t('common:errorDict.error') });
-    //         setLoading(false);
-    //     }
-    // }, []);
-
     return (
         <div className="flex w-full flex-col items-center self-center">
             <form className="w-full max-w-4xl px-9" onSubmit={onSubmit}>

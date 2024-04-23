@@ -1,0 +1,23 @@
+---
+import { changeLanguage } from "i18next";
+import MyResume from "@/components/MyResume.astro";
+import "@/index.css";
+
+changeLanguage("en");
+---
+
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+        <meta name="viewport" content="width=device-width" />
+        <meta name="generator" content={Astro.generator} />
+        <meta name="description" content="Nilswg's portfolio website" />
+        <title>Nilswg Resume Print</title>
+    </head>
+    <body class="bg-slate-800">
+        <main class="w-full">
+            <MyResume />
+        </main>
+    </body>
+</html>

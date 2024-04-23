@@ -4,12 +4,10 @@ import { FC, Fragment, memo, useCallback, useEffect, useRef, useState } from 're
 import { HiOutlineX } from 'react-icons/hi';
 import { useToasts } from './stores/toasts';
 
-export * from './stores/toasts';
-
 export const Toasts: FC = memo(() => {
     const { $toasts } = useToasts();
     return (
-        <div className="fixed right-3 top-20 z-20 w-[20rem]">
+        <div id='toasts' className="fixed right-3 top-20 z-20 w-[20rem]">
             {$toasts().map((e) => (
                 <Toast key={e.id} id={e.id} type={e.type} text={e.text} />
             ))}
@@ -17,7 +15,7 @@ export const Toasts: FC = memo(() => {
     );
 });
 
-export const Toast: FC<Props_Toast> = ({ id, type, text }) => {
+const Toast: FC<Props_Toast> = ({ id, type, text }) => {
     const { removeToast } = useToasts();
     const [anim, setAnim] = useState('animate-slideInRight animate-duration-300');
     const timeout = useRef<NodeJS.Timeout | null>(null);

@@ -7,7 +7,7 @@ import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
 import { BiDownload, BiEnvelope, BiMap, BiPhone } from 'react-icons/bi';
 import { CgSpinner } from 'react-icons/cg';
 import { Experience } from './ExperienceTimeline';
-import { useToasts } from './Toasts';
+import { useToasts } from './stores/toasts';
 import { download } from './utils/fileSaver';
 import { getJobDate } from './utils/getJobDate';
 
@@ -43,6 +43,7 @@ export const Resume: ResumeCompoundComponent = ({ children }) => {
 Resume.DownloadButton = ({ loading, onClick }) => {
     return (
         <button
+            id="resume-download-btn"
             onClick={onClick}
             disabled={loading}
             className="absolute left-4 top-2 z-[100] mb-[1.5rem] inline-block rounded-full px-4 py-4 font-medium shadow-lg duration-300 hover:bg-[#403A3A] hover:text-[#FAFAFA] disabled:bg-gray-200">
@@ -113,7 +114,7 @@ Resume.Experience = memo(({ lang, className, title, experiences }) => {
                         <div className="mb-6 grid gap-1">
                             <h2 className={cn('text-[1rem] font-semibold text-[#403A3A]', fontStyles.jobTitle)}>{item.jobTitle}</h2>
                             <h3 className={cn('text-[.875rem] font-semibold text-[#403A3A]', fontStyles.jobPosition)}>
-                                {item.jobPosition}｜{item.companyName}
+                                {item.jobPosition + ' | ' + item.companyName}
                             </h3>
                             <span className="text-[.85rem] text-gray-500">
                                 {getJobDate(item.begintime, lang)} - {getJobDate(item.endtime, lang)}
