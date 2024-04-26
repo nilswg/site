@@ -1,8 +1,6 @@
 import fs from 'fs';
 import path from 'path';
 
-export const prerender = false;
-
 export const GET = async (request: Request) => {
     try {
         const pdfFilePath = path.join(process.cwd(), `public/pdf/resume_en.pdf`);
