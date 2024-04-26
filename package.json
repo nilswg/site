@@ -1,5 +1,11 @@
 {
   "name": "pnpm-workspace",
+  "scripts": {
+    "astro:dev": "pnpm run --filter astro dev",
+    "astro:build": "pnpm run --filter astro build",
+    "next:dev": "pnpm run --filter next dev",
+    "next:build": "pnpm run --filter next build"
+  },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "4.1.1",
     "@types/node": "^20.11.24",
