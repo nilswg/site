@@ -4,7 +4,9 @@
     "astro:dev": "pnpm run --filter astro dev",
     "astro:build": "pnpm run --filter astro build",
     "next:dev": "pnpm run --filter next dev",
-    "next:build": "pnpm run --filter next build"
+    "next:build": "pnpm run --filter next build",
+    "format:check": "prettier --check ./{apps/astro/src,apps/next/app,packages}/**/*.{astro,ts,tsx} --ignore-path .prettierignore",
+    "format:write": "prettier --write ./{apps/astro/src,apps/next/app,packages}/**/*.{astro,ts,tsx} --ignore-path .prettierignore --log-level error"
   },
   "devDependencies": {
     "@ianvs/prettier-plugin-sort-imports": "4.1.1",

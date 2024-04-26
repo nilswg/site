@@ -1,9 +1,6 @@
 'use client';
 
-import { memo } from 'react';
-import { SectionText, SectionTitle } from '@nilswg-site/ui';
-import { getI18nTextArray } from '@nilswg/i18n';
-import { Trans, useTranslation } from 'next-i18next';
+import { SectionTexts } from '@/components/SectionTexts';
 import { SkillsBoard } from '@/components/SkillsBoard';
 
 const Skills = () => (
@@ -11,7 +8,12 @@ const Skills = () => (
         <div className="w-full 2xl:flex 2xl:flex-row 2xl:justify-center">
             <div className="2xl:flex 2xl:w-2/5 2xl:flex-row 2xl:justify-end">
                 <div className="max-w-3xl">
-                    <SkillsTexts />
+                    <SectionTexts
+                        i18nKeys={{
+                            title: 'home:skills.title',
+                            texts: 'home:skills.texts',
+                        }}
+                    />
                 </div>
             </div>
             <div className="2xl:w-3/5 2xl:pt-10">
@@ -22,23 +24,5 @@ const Skills = () => (
         </div>
     </section>
 );
-
-const SkillsTexts = memo(() => {
-    const { t } = useTranslation();
-    const lang = t('common:lang');
-    const skillsTexts = getI18nTextArray(t, 'home:skills.texts');
-    return (
-        <>
-            <SectionTitle lang={lang} text={t('home:skills.title', { defaultValue: 'Skills' })} />
-            <SectionText lang={lang}>
-                {skillsTexts.map((text, i) => (
-                    <p key={`skills_text_${i}`}>
-                        <Trans i18nKey={text} components={{ b: <b /> }} />
-                    </p>
-                ))}
-            </SectionText>
-        </>
-    );
-});
 
 export default Skills;

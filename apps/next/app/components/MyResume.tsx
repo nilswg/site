@@ -1,44 +1,42 @@
 'use client';
 
 import type { Experience } from '@nilswg-site/ui';
-import { FCX, useMemo } from 'react';
+import { FC, useMemo } from 'react';
 import Image from 'next/image';
-import { Resume } from '@nilswg-site/ui';
+import { Resume, ResumeDownloadButton } from '@nilswg-site/ui';
 import { getI18nObjects, getI18nTextArray } from '@nilswg/i18n';
 import { useTranslation } from 'next-i18next';
-import selfHead from 'public/img/self_head.jpg';
-import { ResumeDownloadButton } from './ResumeDownloadButton';
+import selfHead from 'public/img/headshot.jpg';
 
-export const MyResume: FCX = ({ className }) => {
+export const MyResume: FC = () => {
     const { t } = useTranslation();
-    const lang = t('common:lang');
-
-    const experience = useMemo(
+    const { lang, experience, resume, promptStr, errorDict } = useMemo(
         () => ({
-            title: t('home:experience.title'),
-            items: getI18nObjects<Experience>(t, 'home:experience-timeline'),
+            lang: t('common:lang'),
+            experience: {
+                title: t('home:experience.title'),
+                items: getI18nObjects<Experience>(t, 'home:experience-timeline'),
+            },
+            resume: {
+                profileTexts: getI18nTextArray(t, 'resume:profileTexts'),
+                name: t('resume:name'),
+                jobTitle: t('resume:jobtitle'),
+                address: t('resume:address'),
+                social: t('resume:social'),
+                profile: t('resume:profile'),
+                skills: t('resume:skills'),
+                certificates: t('resume:certificates'),
+                languages: t('resume:languages'),
+            },
+            promptStr: t('common:enter_password'),
+            errorDict: t('common:errorDict', { returnObjects: true }) as Record<string, string>,
         }),
-        [lang],
-    );
-
-    const resume = useMemo(
-        () => ({
-            profileTexts: getI18nTextArray(t, 'resume:profileTexts'),
-            name: t('resume:name'),
-            jobTitle: t('resume:jobtitle'),
-            address: t('resume:address'),
-            social: t('resume:social'),
-            profile: t('resume:profile'),
-            skills: t('resume:skills'),
-            certificates: t('resume:certificates'),
-            languages: t('resume:languages'),
-        }),
-        [lang],
+        [],
     );
 
     return (
         <div className="relative mx-auto min-h-[1122px] max-w-[830px] overflow-hidden bg-[#FCFCFC] shadow-[0_-1px_4px_rgba(0,0,0,.1)]">
-            <ResumeDownloadButton lang={lang} />
+            <ResumeDownloadButton lang={lang} prompt={promptStr} errorDict={errorDict} />
             <div className="flex w-full justify-center">
                 <Resume>
                     <div className="w-full bg-[#F0EFEF]">

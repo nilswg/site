@@ -2,7 +2,7 @@
 
 import type { FC } from 'react';
 import { useCallback } from 'react';
-import { Form } from './ContactForm';
+import { Form } from './Form';
 
 export const FormTest: FC = () => {
     const onSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {

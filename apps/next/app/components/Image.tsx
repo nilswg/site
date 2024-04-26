@@ -9,7 +9,7 @@ const defaultArgs = {
 /**
  * 客製化 Image 元件
  */
-export const $Image = (optArgs: Partial<Args>) => {
+const $Image = (optArgs: Partial<Args>) => {
     const args = { ...defaultArgs, ...optArgs };
     const NewImage: FC<Props_Image> = (props) => {
         if (isImageMetaData(props.src)) {

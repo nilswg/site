@@ -1,14 +1,14 @@
 import type { FC, ReactNode } from 'react';
 import { FlipAnimation } from './FlipAnimation';
 
-type SkillCC = FC<{ children: ReactNode }> & {
+type SkillCompoundComponent = FC<{ children: ReactNode }> & {
     Text: FC<{ id: string }>;
     Image: FC<{ children: ReactNode }>;
 };
 
-export const Skill: SkillCC = ({ children }) => {
+export const Skill: SkillCompoundComponent = ({ children }) => {
     return (
-        <FlipAnimation direction={'vertical'}>
+        <FlipAnimation direction="vertical">
             <div className="group flex flex-col items-center justify-between space-y-2 rounded-lg border border-transparent p-4 transition-all duration-300 ease-in-out hover:border-gray-200 hover:shadow-sm sm:p-5">
                 {children}
             </div>

@@ -1,7 +1,7 @@
 ---
 import Opening from "@/feats/Opening.astro";
 import Layout from "@/layouts/Layout.astro";
-import { changeLanguage, t } from "i18next";
+import { changeLanguage } from "i18next";
 import { DecTag } from "@nilswg-site/ui";
 import About from "@/feats/About.astro";
 import Experience from "@/feats/Experience.astro";
@@ -22,7 +22,6 @@ changeLanguage("zh-TW");
         <Skills />
         <Projects />
         <Contact />
-        <!-- <Example /> -->
         <DecTag className="ml-6 text-xl leading-10">{'</body>'}</DecTag>
         <DecTag className="ml-4 text-xl leading-10">{'</html>'}</DecTag>
     </div>

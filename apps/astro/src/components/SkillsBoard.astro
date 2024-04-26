@@ -8,7 +8,7 @@ import { Image } from 'astro:assets';
         MySkills.map(({ id, img }) => (
             <Skill client:load>
                 <Skill.Image>
-                    <Image src={img} alt={`skill ${id} image`} width={64} height={64} />
+                    <Image src={img} alt={`skill ${id}`} width={64} height={64} />
                 </Skill.Image>
                 <Skill.Text id={id} />
             </Skill>

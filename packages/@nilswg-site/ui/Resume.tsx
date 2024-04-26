@@ -1,18 +1,14 @@
 'use client';
 
 import type { FC, FCX, ReactNode } from 'react';
-import { memo, useCallback, useMemo, useState } from 'react';
+import { memo, useMemo } from 'react';
 import { cn } from '@nilswg/utils';
 import { AiFillGithub, AiFillLinkedin } from 'react-icons/ai';
-import { BiDownload, BiEnvelope, BiMap, BiPhone } from 'react-icons/bi';
-import { CgSpinner } from 'react-icons/cg';
+import { BiEnvelope, BiMap, BiPhone } from 'react-icons/bi';
 import { Experience } from './ExperienceTimeline';
-import { useToasts } from './stores/toasts';
-import { download } from './utils/fileSaver';
 import { getJobDate } from './utils/getJobDate';
 
 type ResumeCompoundComponent = FC<{ children: ReactNode }> & {
-    DownloadButton: FC<{ loading: boolean; onClick: () => void }>;
     Certificates: FCX<{ lang: string; title: string }>;
     Experience: FCX<{
         lang: string;
@@ -38,51 +34,6 @@ export const Resume: ResumeCompoundComponent = ({ children }) => {
             {children}
         </div>
     );
-};
-
-Resume.DownloadButton = ({ loading, onClick }) => {
-    return (
-        <button
-            id="resume-download-btn"
-            onClick={onClick}
-            disabled={loading}
-            className="absolute left-4 top-2 z-[100] mb-[1.5rem] inline-block rounded-full px-4 py-4 font-medium shadow-lg duration-300 hover:bg-[#403A3A] hover:text-[#FAFAFA] disabled:bg-gray-200">
-            {loading ? <Loading /> : <BiDownload />}
-        </button>
-    );
-};
-
-export const useResumeDownload = (lang: string, promptStr: string, errorDict: Record<string, string>) => {
-    const [loading, setLoading] = useState(false);
-    const { addToast } = useToasts();
-    const downloadResume = useCallback(async () => {
-        const password = prompt(promptStr);
-        if (!password) return;
-        setLoading(true);
-
-        await fetch(`/api/resume?lang=${lang}&password=${password}`)
-            .then((response) => {
-                if (!response.ok) {
-                    throw response; // 錯誤則返回錯誤信息
-                }
-                return response.blob(); // 成功處理，返回 blob
-            })
-            .then((blob) => {
-                download(blob, 'resume.pdf'); // 下載文件
-            })
-            .catch(async (errResp) => {
-                /**
-                 * 發生錯誤時，返回的會是 json 格式的錯誤信息
-                 * 這裡會是一個非同步的事件，需要再用 async/await 來處理
-                 */
-                const { type, code } = await errResp.json();
-                addToast({ type, text: errorDict?.[code] || 'download resume failed.' });
-            });
-
-        setLoading(false);
-    }, []);
-
-    return { loading, downloadResume };
 };
 
 Resume.Certificates = ({ lang, className, title }) => {
@@ -239,12 +190,6 @@ const SectionTitle: FC<{ children: ReactNode }> = ({ children }) => {
 };
 
 const Circle: FC = () => <span className="inline-block h-[5px] w-[5px] items-center rounded-full bg-[#403A3A]"></span>;
-
-const Loading: FC = () => (
-    <span className="h-4 w-4 bg-[#403A3A]">
-        <CgSpinner className={`animate-[spin_1s_linear_infinite] text-[#403A3A]`} />
-    </span>
-);
 
 const useResume = (lang: string) => {
     const fontStyles = $fontStyles(lang)! as Fonts;

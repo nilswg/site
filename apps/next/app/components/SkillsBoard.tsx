@@ -9,7 +9,7 @@ export const SkillsBoard = memo(() => {
                 return (
                     <Skill key={`skill_${id}`}>
                         <Skill.Image>
-                            <Image src={img} alt={`skill ${id} image`} width={64} height={64} />
+                            <Image src={img} alt={`skill ${id}`} width={64} height={64} />
                         </Skill.Image>
                         <Skill.Text id={id}></Skill.Text>
                     </Skill>

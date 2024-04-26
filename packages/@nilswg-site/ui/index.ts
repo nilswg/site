@@ -3,6 +3,7 @@ export * from './Counter';
 export * from './DecorativeTags';
 export * from './ExperienceTimeline';
 export * from './FlipAnimation';
+export * from './Form';
 export * from './FormTest';
 export * from './Letters';
 export * from './Link';
@@ -18,6 +19,7 @@ export * from './ToastsDebugger';
 export * from './utils/getJobDate';
 export * from './utils/getJobTenure';
 export * from './Resume';
+export * from './ResumeDownloadButton';
 export * from './Toasts';
 export * from './ToastsDebugger';
 export * from './stores/toasts'

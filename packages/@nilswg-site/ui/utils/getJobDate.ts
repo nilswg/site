@@ -1,6 +1,6 @@
 import moment from 'moment';
 
-const chMonthssDict = <{ [x: string]: string }>{
+const chMonthssDict = {
     '01': '一',
     '02': '二',
     '03': '三',
@@ -13,7 +13,7 @@ const chMonthssDict = <{ [x: string]: string }>{
     '10': '十',
     '11': '十一',
     '12': '十二',
-};
+} as Record<string, string>;
 
 /**
  * 範例:

@@ -2,15 +2,15 @@ import { defineConfig, sharpImageService } from 'astro/config';
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import astroI18next from "astro-i18next";
-import { $config } from './lib/config';
-import vercel from "@astrojs/vercel/serverless";
-const config = $config();
-
+// import vercel from "@astrojs/vercel/serverless";
+import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
   output: 'hybrid',
-  adapter: vercel(),
+  adapter: node({
+    mode: 'standalone',
+  }),
   integrations: [react(), tailwind(), astroI18next()],
   image: {
     service: sharpImageService()
@@ -39,5 +39,4 @@ export default defineConfig({
       }
     }
   },
-  adapter: vercel()
 });

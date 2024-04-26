@@ -1,7 +1,7 @@
 'use client';
 
 import type { FC, FCX, ReactNode } from 'react';
-import { memo, useMemo, useState } from 'react';
+import { Fragment, memo, useMemo, useState } from 'react';
 import { cn } from '@nilswg/utils';
 import { getJobDate } from './utils/getJobDate';
 import { getJobTenure } from './utils/getJobTenure';
@@ -95,17 +95,17 @@ Exp.TimeLine = memo(({ lang, experiences }) => {
 
 Exp.TimeLineItem = ({ active, onClick, fontStyles, companyName, companyImg, jobDate, jobTenure, jobTitle, jobPosition, jobDetails }) => {
     return (
-        <>
+        <Fragment>
             <CompanyPreview active={active} className={fontStyles}>
-                <img src={companyImg} alt={`image of ${companyName}`} height={60} width={60} loading="lazy" decoding="async" />
+                <img src={companyImg} alt={companyName} height={60} width={60} loading="lazy" decoding="async" />
             </CompanyPreview>
-            <JobTenureDates jobDate={jobDate} jobTenure={jobTenure} className={active ? 'text-sky-300' : 'text-sky-600'} />
+            <JobTenureDates jobDate={jobDate} jobTenure={jobTenure} className={active ? 'text-sky-400 font-black' : 'text-sky-500'} />
             <div className={`experience-box ${active ? 'open' : ''}`} onClick={onClick}>
                 <JobTitle jobTitle={jobTitle} />
                 <JobPosition companyName={companyName} jobPosition={jobPosition} />
                 <JobDetails jobDetails={jobDetails} />
             </div>
-        </>
+        </Fragment>
     );
 };
 

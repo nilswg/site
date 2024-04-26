@@ -1,10 +1,10 @@
 'use client';
 
 import type { Experience } from '@nilswg-site/ui';
-import { memo } from 'react';
-import { DecTag, Exp, SectionText, SectionTitle } from '@nilswg-site/ui';
-import { getI18nObjects, getI18nTextArray } from '@nilswg/i18n';
-import { Trans, useTranslation } from 'next-i18next';
+import { DecTag, Exp } from '@nilswg-site/ui';
+import { getI18nObjects } from '@nilswg/i18n';
+import { useTranslation } from 'next-i18next';
+import { SectionTexts } from '@/components/SectionTexts';
 
 const Experience = () => {
     const { t } = useTranslation();
@@ -15,7 +15,12 @@ const Experience = () => {
             <div className="w-full 2xl:flex 2xl:flex-row 2xl:justify-center">
                 <div className="2xl:flex 2xl:w-2/5 2xl:flex-row 2xl:justify-end">
                     <div className="max-w-3xl">
-                        <ExperienceTexts />
+                        <SectionTexts
+                            i18nKeys={{
+                                title: 'home:experience.title',
+                                texts: 'home:experience.texts',
+                            }}
+                        />
                     </div>
                 </div>
                 <div className="2xl:w-3/5 2xl:pt-10">
@@ -31,28 +36,5 @@ const Experience = () => {
         </section>
     );
 };
-
-const ExperienceTexts = memo(() => {
-    const { t } = useTranslation();
-    const experienceTexts = getI18nTextArray(t, 'home:experience.texts');
-    const lang = t('common:lang');
-    return (
-        <>
-            <SectionTitle lang={lang} text={t('home:experience.title', { defaultValue: 'Experience' })} />
-            <SectionText lang={lang}>
-                {experienceTexts.map((text, i) => (
-                    <p key={`experience_text_${i}`}>
-                        <Trans
-                            i18nKey={text}
-                            components={{
-                                b: <b />,
-                            }}
-                        />
-                    </p>
-                ))}
-            </SectionText>
-        </>
-    );
-});
 
 export default Experience;

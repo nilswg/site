@@ -86,7 +86,6 @@ Project.Links = ({ demo, github }) => {
                 className={`${!demo ? 'pointer-events-none' : ''} absolute right-[2.5rem] top-[-15px] sm:right-[3.5rem] sm:top-[-19px]`}>
                 <span className={LinkStyles}>{!demo ? <AiOutlineEyeInvisible /> : <AiOutlineEye />}</span>
             </Link>
-            <a href="/" target="_blank" rel="noopener noreferrer"></a>
             <Link
                 href={github}
                 target="_blank"

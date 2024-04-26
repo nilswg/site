@@ -15,7 +15,12 @@ const Projects = () => {
     return (
         <section id="projects" className="bg-myblack w-full py-[var(--navbar-height)]">
             <VerticalFrame>
-                <SectionTexts i18nKeys={{ title: 'home:projects.title', texts: 'home:projects.texts' }} />
+                <SectionTexts
+                    i18nKeys={{
+                        title: 'home:projects.title',
+                        texts: 'home:projects.texts',
+                    }}
+                />
                 <DecTag className="ml-6">{'<div class="grid">'}</DecTag>
             </VerticalFrame>
             <div className="flex w-full flex-col items-center self-center">
@@ -30,10 +35,4 @@ const Projects = () => {
     );
 };
 
-const ProjectsTexts = () => {
-
-}
-
 export default Projects;
-
-
