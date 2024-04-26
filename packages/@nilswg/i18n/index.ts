@@ -1,1 +1,1 @@
-export * from './getI18nTranslation'
+export * from './getI18nTranslation';

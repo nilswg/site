@@ -2,9 +2,5 @@ import type { FCX } from 'react';
 import { cn } from '@nilswg/utils';
 
 export const DecTag: FCX<{ children: string }> = ({ children, className }) => {
-    return (
-        <span className={cn('tags block', className)}>
-            {children}
-        </span>
-    );
+    return <span className={cn('tags block', className)}>{children}</span>;
 };

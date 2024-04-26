@@ -6,8 +6,8 @@ changeLanguage("zh-TW");
 ---
 
 <Layout title="Resume">
-    <div class="w-full h-screen grid place-content-center">
-        <p id="message" class="p-2  text-red-600"></p>
+    <div class="grid h-screen w-full place-content-center">
+        <p id="message" class="p-2 text-red-600"></p>
         <button id="pdf" class="mt-navbar bg-pink-600 p-10 text-white">download pdf</button>
     </div>
     <script>
@@ -17,21 +17,19 @@ changeLanguage("zh-TW");
                     if (!response.ok) {
                         throw response;
                     }
-                    return response.blob(); // 将响应转换为 Blob 对象
+                    return response.blob();
                 })
                 .then((blob) => {
-                    // 创建一个链接元素
                     const url = window.URL.createObjectURL(blob);
                     const a = document.createElement('a');
                     a.href = url;
-                    a.download = 'resume_en.pdf'; // 设置下载文件的默认名称
+                    a.download = 'resume_en.pdf';
                     document.body.appendChild(a);
-                    a.click(); // 模拟点击链接以触发下载
-                    window.URL.revokeObjectURL(url); // 释放 URL 对象
+                    a.click();
+                    window.URL.revokeObjectURL(url);
                 })
                 .catch(async (err) => {
-                    // console.error('Error fetching PDF:', error);
-                    console.log({ data: await err.json() })
+                    console.log({ data: await err.json() });
                     document.getElementById('message')!.textContent = JSON.stringify(errors);
                 });
             console.log({ data: data });

@@ -1,4 +1,4 @@
-import { useCallback } from 'react'
+import { useCallback } from 'react';
 
 /**
  * ## Throttle
@@ -19,21 +19,17 @@ import { useCallback } from 'react'
  * @url https://github.com/streamich/react-use/blob/master/src/useThrottleFn.ts
  */
 
-export function throttle<T, U extends any[]>(
-  fn: (...args: U) => T,
-  ms: number,
-  args: U
-) {
-  let lastCallTime: number = Date.now()
+export function throttle<T, U extends any[]>(fn: (...args: U) => T, ms: number, args: U) {
+    let lastCallTime: number = Date.now();
 
-  return function () {
-    const currentTime = Date.now()
-    const elapsedTime = currentTime - lastCallTime
-    if (elapsedTime >= ms) {
-      lastCallTime = currentTime
-      fn(...args)
-    }
-  }
+    return function () {
+        const currentTime = Date.now();
+        const elapsedTime = currentTime - lastCallTime;
+        if (elapsedTime >= ms) {
+            lastCallTime = currentTime;
+            fn(...args);
+        }
+    };
 }
 
 /**
@@ -42,9 +38,9 @@ export function throttle<T, U extends any[]>(
  * 使用 React.useCallback 包裹起來的 throttle 方法，可作為回調函式來使用
  */
 export function useThrottleFn<T, U extends any[]>(
-  fn: (...args: U) => T,
-  ms: number,
-  args: U // 同時作為傳入fn的參數與依賴項目
+    fn: (...args: U) => T,
+    ms: number,
+    args: U, // 同時作為傳入fn的參數與依賴項目
 ) {
-  return useCallback(throttle(fn, ms, args), args)
+    return useCallback(throttle(fn, ms, args), args);
 }

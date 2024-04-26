@@ -1,6 +1,6 @@
 'use client';
 
-import { memo, useEffect, useState } from 'react';
+import { Fragment, memo, useEffect, useState } from 'react';
 import { cn } from '@nilswg/utils';
 import { IoMdRocket } from 'react-icons/io';
 
@@ -39,15 +39,14 @@ type DotProps = {
     index: number;
 };
 
+const dots = Array(20).fill(0);
 const Dots = memo(() => {
     return (
-        <>
-            {Array(20)
-                .fill(0)
-                .map((_, i) => (
-                    <Dot key={`dot_${i}`} index={i} />
-                ))}
-        </>
+        <Fragment>
+            {dots.map((_, i) => (
+                <Dot key={i} index={i} />
+            ))}
+        </Fragment>
     );
 });
 
@@ -55,8 +54,8 @@ const Dot = ({ index }: DotProps) => (
     <div className={`absolute inset-0 h-full w-full`} style={{ transform: `rotate(${-10 + index * 18}deg)` }}>
         <span
             className={`absolute inset-0 h-[1rem] w-[1rem] scale-0 animate-[rocketdot_2s_linear_infinite] rounded-full ${dotColor} sm:h-[2rem] sm:w-[2rem]`}
-            style={{ animationDelay: `${index / 10}s` }} //
-        ></span>
+            style={{ animationDelay: `${index / 10}s` }}
+        />
     </div>
 );
 

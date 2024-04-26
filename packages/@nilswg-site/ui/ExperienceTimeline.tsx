@@ -99,7 +99,7 @@ Exp.TimeLineItem = ({ active, onClick, fontStyles, companyName, companyImg, jobD
             <CompanyPreview active={active} className={fontStyles}>
                 <img src={companyImg} alt={companyName} height={60} width={60} loading="lazy" decoding="async" />
             </CompanyPreview>
-            <JobTenureDates jobDate={jobDate} jobTenure={jobTenure} className={active ? 'text-sky-400 font-black' : 'text-sky-500'} />
+            <JobTenureDates jobDate={jobDate} jobTenure={jobTenure} className={active ? 'font-black text-sky-400' : 'text-sky-500'} />
             <div className={`experience-box ${active ? 'open' : ''}`} onClick={onClick}>
                 <JobTitle jobTitle={jobTitle} />
                 <JobPosition companyName={companyName} jobPosition={jobPosition} />
@@ -109,10 +109,7 @@ Exp.TimeLineItem = ({ active, onClick, fontStyles, companyName, companyImg, jobD
     );
 };
 
-const CompanyPreview: FCX<{
-    children: ReactNode; // company image
-    active: boolean;
-}> = ({ children, active, className }) => {
+const CompanyPreview: FCX<{ children: ReactNode; active: boolean }> = ({ children, active, className }) => {
     return (
         <div
             id="circle"

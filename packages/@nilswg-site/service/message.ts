@@ -1,5 +1,5 @@
-import { z } from "zod";
-import { logError, respJson, useZodError } from "./utils";
+import { z } from 'zod';
+import { logError, respJson, useZodError } from './utils';
 
 export const messageSchema = z.object({
     name: z.string().min(3),

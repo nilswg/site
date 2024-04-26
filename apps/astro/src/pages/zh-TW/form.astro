@@ -1,12 +1,12 @@
 ---
-import { changeLanguage } from "i18next";
 import Layout from "@/layouts/Layout.astro";
 import { FormTest } from "@nilswg-site/ui/FormTest";
+import { changeLanguage } from "i18next";
 
 changeLanguage("zh-TW");
 ---
 
 <Layout title="Form Test">
     <h1>Register</h1>
-    <FormTest client:load/>
+    <FormTest client:load />
 </Layout>

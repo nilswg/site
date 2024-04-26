@@ -34,10 +34,6 @@ export const SkillsContainer: FC<{ children: ReactNode }> = ({ children }) => (
     </div>
 );
 
-// export const SkillsBoard: FC<{ $child: (id: string, img: string) => JSX.Element }> = memo(({ $child }) => (
-//     <Container>{MySkills.map((item) => $child(item.id, item.img))}</Container>
-// ));
-
 export const MySkills = [
     { id: 'TypeScript', img: '/img/skills/TypeScript.svg' },
     { id: 'JavaScript', img: '/img/skills/JavaScript.svg' },

@@ -1,5 +1,5 @@
-import { BlogContent } from '@/components/BlogContent';
 import { Layout } from '@/layouts/Layout';
+import { BlogContent } from '@/components/BlogContent';
 
 export default async function Blog({ params }: { params: { locale: string } }) {
     return (

@@ -11,15 +11,15 @@ export const GET = async (request: Request) => {
     const password = query.get('password');
 
     if (!lang || typeof password !== 'string') {
-        return respJson(400, { type:'warn', code: 'lang_invalid_string' });
+        return respJson(400, { type: 'warn', code: 'lang_invalid_string' });
     }
 
     if (!password || typeof password !== 'string') {
-        return respJson(400, { type:'warn', code: 'password_invalid_string' });
+        return respJson(400, { type: 'warn', code: 'password_invalid_string' });
     }
 
     if (password !== expectPassword) {
-        return respJson(400, { type:'warn', code: 'wrong_password' });
+        return respJson(400, { type: 'warn', code: 'wrong_password' });
     }
 
     try {
@@ -41,6 +41,6 @@ export const GET = async (request: Request) => {
             },
         );
     } catch (error: unknown) {
-        return respJson(500, { type:'error', code: 'server_error' });
+        return respJson(500, { type: 'error', code: 'server_error' });
     }
 };

@@ -1,4 +1,4 @@
-import { useCallback, useRef } from 'react'
+import { useCallback, useRef } from 'react';
 
 /**
  * ## Debounce
@@ -11,19 +11,19 @@ import { useCallback, useRef } from 'react'
  *
  */
 export function debounce<T, U extends any[]>(
-  fn: (...args: U) => T,
-  ms: number,
-  args: U,
-  timeout: NodeJS.Timeout | null = null // 可選擇從做為參數傳入
+    fn: (...args: U) => T,
+    ms: number,
+    args: U,
+    timeout: NodeJS.Timeout | null = null, // 可選擇從做為參數傳入
 ): () => void {
-  return function () {
-    if (!!timeout) {
-      clearTimeout(timeout)
-    }
-    timeout = setTimeout(() => {
-      fn(...args)
-    }, ms)
-  }
+    return function () {
+        if (!!timeout) {
+            clearTimeout(timeout);
+        }
+        timeout = setTimeout(() => {
+            fn(...args);
+        }, ms);
+    };
 }
 
 /**
@@ -49,17 +49,17 @@ export function debounce<T, U extends any[]>(
  * ```
  */
 export function useDebounceFn<T, U extends any[]>(
-  fn: (...args: U) => T,
-  ms: number,
-  args: U // 同時作為傳入fn的參數與依賴項目
+    fn: (...args: U) => T,
+    ms: number,
+    args: U, // 同時作為傳入fn的參數與依賴項目
 ): [() => void, () => void] {
-  const timer = useRef<NodeJS.Timeout | null>(null)
-  const fnDebounced = useCallback(debounce(fn, ms, args, timer.current), args)
-  const clear = useCallback(() => {
-    if (!!timer.current) {
-      clearTimeout(timer.current)
-    }
-  }, args)
+    const timer = useRef<NodeJS.Timeout | null>(null);
+    const fnDebounced = useCallback(debounce(fn, ms, args, timer.current), args);
+    const clear = useCallback(() => {
+        if (!!timer.current) {
+            clearTimeout(timer.current);
+        }
+    }, args);
 
-  return [fnDebounced, clear]
+    return [fnDebounced, clear];
 }

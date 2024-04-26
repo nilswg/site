@@ -1,4 +1,4 @@
-import { useCallback, useEffect, useRef } from 'react'
+import { useCallback, useEffect, useRef } from 'react';
 
 /**
  * ## Delay
@@ -9,19 +9,19 @@ import { useCallback, useEffect, useRef } from 'react'
  *
  */
 export function useDelayEffect<T, U extends any[]>(
-  fn: (...args: U) => T,
-  ms: number,
-  args: U // 同時作為傳入fn的參數與依賴項目
+    fn: (...args: U) => T,
+    ms: number,
+    args: U, // 同時作為傳入fn的參數與依賴項目
 ) {
-  useEffect(() => {
-    const timer: NodeJS.Timeout = setTimeout(() => {
-      fn(...args)
-    }, ms)
+    useEffect(() => {
+        const timer: NodeJS.Timeout = setTimeout(() => {
+            fn(...args);
+        }, ms);
 
-    return () => {
-      clearTimeout(timer)
-    }
-  }, args)
+        return () => {
+            clearTimeout(timer);
+        };
+    }, args);
 }
 
 /**
@@ -44,23 +44,23 @@ export function useDelayEffect<T, U extends any[]>(
  * ```
  */
 export function useDelayFn<T, U extends any[]>(
-  fn: (...args: U) => T,
-  ms: number,
-  args: U // 同時作為傳入fn的參數與依賴項目
+    fn: (...args: U) => T,
+    ms: number,
+    args: U, // 同時作為傳入fn的參數與依賴項目
 ): [() => void, () => void] {
-  const timer = useRef<NodeJS.Timeout | null>(null)
+    const timer = useRef<NodeJS.Timeout | null>(null);
 
-  const callBack = useCallback(() => {
-    timer.current = setTimeout(() => {
-      fn(...args)
-    }, ms)
-  }, args)
+    const callBack = useCallback(() => {
+        timer.current = setTimeout(() => {
+            fn(...args);
+        }, ms);
+    }, args);
 
-  const clear = useCallback(() => {
-    if (timer.current) {
-      clearTimeout(timer.current)
-    }
-  }, args)
+    const clear = useCallback(() => {
+        if (timer.current) {
+            clearTimeout(timer.current);
+        }
+    }, args);
 
-  return [callBack, clear]
+    return [callBack, clear];
 }

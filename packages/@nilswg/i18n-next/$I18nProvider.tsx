@@ -1,6 +1,6 @@
 'use client';
 
-import { Resource, createInstance } from 'i18next';
+import { createInstance, Resource } from 'i18next';
 import { UserConfig } from 'next-i18next';
 import { I18nextProvider, initReactI18next } from 'react-i18next';
 
@@ -19,7 +19,7 @@ type Args2 = {
 };
 
 /**
- * 使用已經初始化的完成 i18n 實例 
+ * 使用已經初始化的完成 i18n 實例
  */
 const enableI18nInstance = (i18nConfig: UserConfig['i18n']) => (args: Args2) => {
     args.i18nInstance.use(initReactI18next).init({

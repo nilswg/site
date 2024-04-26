@@ -11,7 +11,7 @@ type Props_EnChButton = {
 };
 
 type EnChCompoundComponent = FC<Props_EnChButton> & {
-    CheckBox: FC<{ className: string; lang: string; useDefault:boolean }>;
+    CheckBox: FC<{ className: string; lang: string; useDefault: boolean }>;
 };
 
 const texts = {
@@ -54,11 +54,10 @@ EnChButton.CheckBox = ({ className, lang, useDefault }) => {
 };
 
 function switchLanguage(language: string, useDefault = false) {
-    // 在這個函數中，你可以根據所選的語言生成新的URL
-    var currentPath = window.location.pathname; // 取得目前的路徑
+    var currentPath = window.location.pathname;
     var newPath = '';
 
-    // // 根據所選的語言來修改路徑
+    // 根據所選的語言來修改路徑
     switch (language) {
         case 'en':
             newPath = currentPath.replace(/\/zh-TW\/?/, useDefault ? '/en/' : '/'); // 如果 useDefault 為 true，則會將 /zh-TW/ 替換為 /en/

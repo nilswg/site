@@ -2,11 +2,11 @@
 
 import type { FC } from 'react';
 import { useCallback, useState } from 'react';
+import { cn } from '@nilswg/utils';
 import { BiDownload } from 'react-icons/bi';
 import { CgSpinner } from 'react-icons/cg';
 import { useToasts } from './stores/toasts';
 import { download } from './utils/fileSaver';
-import { cn } from '@nilswg/utils';
 
 type Props_ResumeDownloadButton = {
     lang: string;
@@ -49,9 +49,7 @@ const useResumeDownload = (lang: string, promptStr: string, errorDict: Record<st
                 }
                 return response.blob(); // 成功處理，返回 blob
             })
-            .then((blob) => {
-                download(blob, 'resume.pdf'); // 下載文件
-            })
+            .then((blob) => download(blob, 'resume.pdf')) // 下載 resume.pdf
             .catch(async (errResp) => {
                 /**
                  * 發生錯誤時，返回的會是 json 格式的錯誤信息

@@ -1,5 +1,5 @@
-import { MyResume } from '@/components/MyResume';
 import { Layout } from '@/layouts/Layout';
+import { MyResume } from '@/components/MyResume';
 
 export default async function Resume({ params }: { params: { locale: string } }) {
     return (

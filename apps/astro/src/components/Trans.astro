@@ -17,10 +17,12 @@ const text = isArray ? getI18nTextArray(t, i18nKey) : getI18nText(t, i18nKey);
 {
     Array.isArray(text) ? (
         <Fragment
-            set:html={text.reduce((res, cur) => {
-                res.push(interpolate(cur, referenceString));
-                return res;
-            }, [] as string[]).join('')}
+            set:html={text
+                .reduce((res, cur) => {
+                    res.push(interpolate(cur, referenceString));
+                    return res;
+                }, [] as string[])
+                .join('')}
         />
     ) : (
         <Fragment set:html={interpolate(text, referenceString)} />

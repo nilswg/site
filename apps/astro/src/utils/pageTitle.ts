@@ -1,15 +1,15 @@
 /**
  * 透過 pathname 取得對應的網站 title
- * 
- * @example 
+ *
+ * @example
  * ```
  *  const pageName = getParsedPathName(pathname);
  *  const title = `Nilswg | ${pageName}`; // Home
  * ```
- * 
- * 
- * @param pathname 
- * @returns 
+ *
+ *
+ * @param pathname
+ * @returns
  */
 export const $pageTitle = (pathname: string) => {
     let res = '';

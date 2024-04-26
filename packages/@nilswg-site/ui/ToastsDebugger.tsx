@@ -1,7 +1,8 @@
 'use client';
 
+import type { FC } from 'react';
 import type { ToastType } from './stores/toasts';
-import { createContext, FC, memo, useCallback, useContext, useMemo, useRef } from 'react';
+import { createContext, memo, useCallback, useContext, useMemo, useRef } from 'react';
 import { useToasts } from './stores/toasts';
 
 const Context = createContext<{

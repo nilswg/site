@@ -16,7 +16,6 @@ export const $Link = (optArgs: Partial<Args>): FC<Props_Link> => {
     return newLink;
 };
 
-// 客製化 Link 元件
 export const Link = $Link(defaultArgs);
 
 type Args = typeof defaultArgs;

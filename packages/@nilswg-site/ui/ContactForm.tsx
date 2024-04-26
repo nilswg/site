@@ -4,8 +4,8 @@ import type { FC } from 'react';
 import { memo, useCallback } from 'react';
 import { cn } from '@nilswg/utils';
 import { t } from 'i18next';
-import { useToasts } from './stores/toasts';
 import { Form, useForm } from './Form';
+import { useToasts } from './stores/toasts';
 
 type Props_ContactForm = {
     fields: {

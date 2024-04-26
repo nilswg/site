@@ -1,13 +1,14 @@
 'use client';
 
-import { FC, Fragment, memo, useCallback, useEffect, useRef, useState } from 'react';
+import type { FC } from 'react';
+import { Fragment, memo, useCallback, useEffect, useRef, useState } from 'react';
 import { HiOutlineX } from 'react-icons/hi';
 import { useToasts } from './stores/toasts';
 
 export const Toasts: FC = memo(() => {
     const { $toasts } = useToasts();
     return (
-        <div id='toasts' className="fixed right-3 top-20 z-20 w-[20rem]">
+        <div id="toasts" className="fixed right-3 top-20 z-20 w-[20rem]">
             {$toasts().map((e) => (
                 <Toast key={e.id} id={e.id} type={e.type} text={e.text} />
             ))}

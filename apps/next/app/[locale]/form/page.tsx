@@ -2,4 +2,4 @@
 
 import { FormTest } from '@nilswg-site/ui';
 
-export default FormTest
+export default FormTest;

@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import type { FCX, ReactNode } from 'react';
 import { useCallback, useState } from 'react';

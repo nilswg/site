@@ -1,6 +1,7 @@
-'use client'
+'use client';
 
 import { useEffect, useRef } from 'react';
+import { cn } from '@nilswg/utils';
 
 type IntersectionLineProps = {
     fn: (observer: IntersectionObserver, entry: IntersectionObserverEntry) => void;
@@ -32,10 +33,12 @@ export const IntersectionLine: React.FC<IntersectionLineProps> = ({ fn, visible 
 
     return (
         <div
-            className={`
-        relative ${position}
-        ${visible && `before:absolute before:z-10 before:w-full before:border before:border-red-600 before:content-['']`}
-      `}
-            ref={ref}></div>
+            className={cn(
+                'relative',
+                position,
+                visible && 'before:absolute before:z-10 before:w-full before:border before:border-red-600 before:content-[""]',
+            )}
+            ref={ref}
+        />
     );
 };

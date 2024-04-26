@@ -2,10 +2,10 @@
 
 import type { FC } from 'react';
 import { useMemo } from 'react';
+import Image from 'next/image';
 import { Nav } from '@nilswg-site/ui';
 import { useTranslation } from 'next-i18next';
 import logo from 'public/nilswg-blue-noblack-min.svg';
-import Image from 'next/image';
 
 export const Navbar: FC = () => {
     const { t, i18n } = useTranslation();
@@ -26,10 +26,10 @@ export const Navbar: FC = () => {
             <Nav.Horizontal
                 logo={<Image src={logo} alt="nilswg logo" priority />} //
                 button={<Nav.MenuButton />}
-                items={<Nav.HorizontalItems {...props} useDefault/>}
+                items={<Nav.HorizontalItems {...props} useDefault />}
             />
             <Nav.Vertical>
-                <Nav.VerticalItems {...props} useDefault/>
+                <Nav.VerticalItems {...props} useDefault />
                 <Nav.SocialLinks />
             </Nav.Vertical>
         </Nav>

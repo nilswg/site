@@ -1,8 +1,8 @@
 'use client';
 
-import { useMemo, memo } from 'react';
-import { useTranslation } from 'next-i18next';
+import { memo, useMemo } from 'react';
 import { CommingSoon, CommingSoonTexts } from '@nilswg-site/ui';
+import { useTranslation } from 'next-i18next';
 
 export const BlogContent = memo(() => {
     const { t } = useTranslation();

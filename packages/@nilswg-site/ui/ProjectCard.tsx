@@ -4,29 +4,6 @@ import { AiFillGithub, AiOutlineEye, AiOutlineEyeInvisible } from 'react-icons/a
 import { FlipAnimation } from './FlipAnimation';
 import { Link } from './Link';
 
-// type Props_ProjectCard = {
-//     tags: string[];
-//     title: string;
-//     description: string;
-//     demo: string;
-//     github: string;
-//     preview: Props_Image;
-// };
-
-// const ProjectCard: FC<Props_ProjectCard> = ({ tags, title, description, demo, github, preview }) => (
-//     <Project>
-//         <Project.Preview>
-//             <Image className="object-fill" {...preview} />
-//         </Project.Preview>
-//         <Project.Content>
-//             <Project.Links demo={demo} github={github} />
-//             <Project.Title>{title}</Project.Title>
-//             <Project.Desc>{description}</Project.Desc>
-//             <Project.Tags title={title} tags={tags} />
-//         </Project.Content>
-//     </Project>
-// );
-
 type ProjectCompoudComponent = FC<{ children: ReactNode }> & {
     Links: FC<{ demo: string; github: string }>;
     Title: FC<{ children: string }>;
@@ -102,7 +79,7 @@ Project.Tags = ({ title, tags }) => (
     <div className="h-[2.5rem] overflow-hidden pt-2 sm:h-[6rem] ">
         <div className="flex flex-wrap">
             {tags.map((tag, i) => (
-                <ProjectTag key={title+'_'+tag} text={tag} />
+                <ProjectTag key={title + '_' + tag} text={tag} />
             ))}
         </div>
     </div>
@@ -148,7 +125,6 @@ export const ProjectsList = [
         title: 'Meetup Deno Server',
         demo: 'https://nilswg-meet.vercel.app/',
         github: 'https://github.com/nilswg/ts-next-meetup-room/tree/main/server/deno',
-        // preview: '/img/projects/ts-nilswg-meetup-room-socketio.png',
         preview: {
             src: '/img/projects/ts-nilswg-meetup-room-socketio.png',
             alt: 'Project - Meetup Room App Deno Server',
@@ -163,7 +139,6 @@ export const ProjectsList = [
         title: 'Weather App',
         demo: 'https://nilswg.github.io/ts-vite-react-weather-app/',
         github: 'https://github.com/nilswg/ts-vite-react-weather-app',
-        // preview: '/img/projects/ts-vite-react-weather-app.png',
         preview: {
             src: '/img/projects/ts-vite-react-weather-app.png',
             alt: 'Project - Weather App',
@@ -178,7 +153,6 @@ export const ProjectsList = [
         title: 'Lowkeydd App',
         demo: '',
         github: 'https://github.com/zxcasdjason1/lowkeydd-dev',
-        // preview: '/img/projects/ts-react-lowkeydd-app.png',
         preview: {
             src: '/img/projects/ts-react-lowkeydd-app.png',
             alt: 'Project - Lowkeydd App',
@@ -193,7 +167,6 @@ export const ProjectsList = [
         title: "Lowkeydd's Server",
         demo: '',
         github: 'https://github.com/zxcasdjason1/lowkeydd-server',
-        // preview: '/img/projects/golang-lowkeydd-server.png',
         preview: {
             src: '/img/projects/golang-lowkeydd-server.png',
             alt: "Project - Lowkeydd's Server",
@@ -203,13 +176,4 @@ export const ProjectsList = [
         tags: ['Go-Gin', 'Go-Colly', 'Docker', 'Nginx', 'postgreSQL', 'Redis'],
         description: "Lowkeydd 's Server. Crawling data from YouTube into Redis. Provide APIs with Go-Gin server",
     },
-    // {
-    //   id: 'proj6',
-    //   title: 'Lowkeydd',
-    //   demo: '',
-    //   github: '',
-    //   preview: 'https://mdbootstrap.com/img/new/standard/nature/182.jpg',
-    //   tags: ['React', 'Next.js'],
-    //   description: 'Lorem ipsum dolor sit amet consectetur adipisicing elit.',
-    // },
 ];
