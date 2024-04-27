@@ -11,7 +11,7 @@ type Props_LocaleProvider = {
     resources: import('i18next').Resource;
 };
 
-type Args2 = {
+type Args = {
     locale: string;
     namespaces: string[];
     resources: Resource;
@@ -21,7 +21,7 @@ type Args2 = {
 /**
  * 使用已經初始化的完成 i18n 實例
  */
-const enableI18nInstance = (i18nConfig: UserConfig['i18n']) => (args: Args2) => {
+const enableI18nInstance = (i18nConfig: UserConfig['i18n']) => (args: Args) => {
     args.i18nInstance.use(initReactI18next).init({
         lng: args.locale,
         resources: args.resources,

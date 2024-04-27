@@ -17,7 +17,7 @@ const config = {
     // i18nextClientPlugins: {
     //   "{initReactI18next}": "react-i18next",
     // },
-    namespaces: ['home', 'common', 'blog', 'resume'],
+    namespaces: ['home', 'common', 'resume'],
     defaultNamespace: 'common',
     resourcesBasePath: '/locales',
 };
