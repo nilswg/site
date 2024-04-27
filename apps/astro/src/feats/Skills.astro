@@ -4,7 +4,7 @@ import SectionTexts from '@/components/SectionTexts.astro';
 import SkillsBoard from '@/components/SkillsBoard.astro';
 ---
 
-<section id="experience" class="bg-myblack w-full py-[var(--navbar-height)]">
+<section id="skills" class="bg-myblack w-full py-navbar">
     <div class="w-full 2xl:flex 2xl:flex-row 2xl:justify-center">
         <div class="2xl:flex 2xl:w-2/5 2xl:flex-row 2xl:justify-end">
             <div class="max-w-3xl">
@@ -15,11 +15,11 @@ import SkillsBoard from '@/components/SkillsBoard.astro';
                     }}
                 />
             </div>
-            <div class="2xl:w-3/5 2xl:pt-10">
-                <DecTag className="ml-6 2xl:ml-[10%]">{'<div class="grid">'}</DecTag>
-                <SkillsBoard />
-                <DecTag className="ml-6 2xl:ml-[10%]">{'</div>'}</DecTag>
-            </div>
+        </div>
+        <div class="2xl:w-3/5 2xl:pt-10">
+            <DecTag className="ml-6">{'<div class="grid">'}</DecTag>
+            <SkillsBoard />
+            <DecTag className="ml-6">{'</div>'}</DecTag>
         </div>
     </div>
 </section>
