@@ -19,7 +19,7 @@ export const CommingSoonTexts: FC<{
 export const CommingSoon: FC<{ children: ReactNode }> = ({ children }) => (
     <>
         <div className="flex h-[calc(100vh-5rem)] w-full flex-col items-center justify-center pb-[5rem]">
-            <div className="w-3/4">
+            <div className="w-3/4 max-w-screen-md">
                 <svg
                     className="w-full"
                     xmlns="http://www.w3.org/2000/svg"
