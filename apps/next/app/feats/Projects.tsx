@@ -13,7 +13,7 @@ const VerticalFrame = ({ children }: { children: ReactNode }) => (
 
 const Projects = () => {
     return (
-        <section id="projects" className="bg-myblack w-full py-[var(--navbar-height)]">
+        <section id="projects" className="bg-myblack w-full py-navbar">
             <VerticalFrame>
                 <SectionTexts
                     i18nKeys={{

@@ -1,5 +1,3 @@
-'use client';
-
 import type { FC } from 'react';
 import type { Props_Image } from './Image';
 import { Fragment, memo } from 'react';

@@ -11,7 +11,7 @@ const Experience = () => {
     const experiences = getI18nObjects<Experience>(t, 'home:experience-timeline');
     const lang = t('common:lang');
     return (
-        <section id="experience" className="bg-myblack w-full py-[var(--navbar-height)]">
+        <section id="experience" className="bg-myblack w-full py-navbar">
             <div className="w-full 2xl:flex 2xl:flex-row 2xl:justify-center">
                 <div className="2xl:flex 2xl:w-2/5 2xl:flex-row 2xl:justify-end">
                     <div className="max-w-3xl">

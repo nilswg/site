@@ -28,7 +28,7 @@ export const Contact: FC = () => {
         [],
     );
     return (
-        <section id="contact" className="bg-myblack w-full py-[var(--navbar-height)]">
+        <section id="contact" className="bg-myblack w-full py-navbar">
             <VerticalFrame>
                 <SectionTexts
                     i18nKeys={{

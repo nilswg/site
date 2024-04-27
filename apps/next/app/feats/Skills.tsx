@@ -2,9 +2,10 @@
 
 import { SectionTexts } from '@/components/SectionTexts';
 import { SkillsBoard } from '@/components/SkillsBoard';
+import { DecTag } from '@nilswg-site/ui';
 
 const Skills = () => (
-    <section id="skills" className="bg-myblack w-full py-[var(--navbar-height)]">
+    <section id="skills" className="bg-myblack w-full py-navbar">
         <div className="w-full 2xl:flex 2xl:flex-row 2xl:justify-center">
             <div className="2xl:flex 2xl:w-2/5 2xl:flex-row 2xl:justify-end">
                 <div className="max-w-3xl">
@@ -17,9 +18,9 @@ const Skills = () => (
                 </div>
             </div>
             <div className="2xl:w-3/5 2xl:pt-10">
-                <h1 className="tags ml-6">{'<div class="grid">'}</h1>
+                <DecTag className="ml-6">{'<div class="grid">'}</DecTag>
                 <SkillsBoard />
-                <h1 className="tags ml-6">{'</div>'}</h1>
+                <DecTag className="ml-6">{'</div>'}</DecTag>
             </div>
         </div>
     </section>

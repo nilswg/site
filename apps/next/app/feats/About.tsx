@@ -5,7 +5,7 @@ import { SectionTexts } from '@/components/SectionTexts';
 import hero from '/public/img/hero2.jpg';
 
 export const About = () => (
-    <section id="about" className={`bg-myblack mt-[var(--navbar-height)] w-full py-[var(--navbar-height)]`}>
+    <section id="about" className={`bg-myblack mt-navbar w-full py-navbar`}>
         <div className="w-full 2xl:flex 2xl:flex-row 2xl:justify-center">
             <div className="2xl:flex 2xl:w-2/5 2xl:flex-row 2xl:justify-end">
                 <div className="w-full max-w-3xl">
