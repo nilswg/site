@@ -36,7 +36,7 @@
       "begintime": [2023, 5],
       "endtime": [2024, 6],
       "texts": [
-        "重塑公司主力產品 XQ 的行銷網站，提升效能和 SEO。",
+        "重塑公司主力產品 XQ 的行銷網站，提升效能與提高 SEO 分數。",
         "運用 Astro, Next.js 框架，以 SSG 技術優化性能，並降低服務器成本。",
         "借鑑 Next.js ISR，以本地化存儲數據，優化建置時間從5分縮短至30秒。",
         "運用 React 和 Tailwind 開發 UI元件，再以 Storybook 驗證元件效果。",
