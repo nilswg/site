@@ -4,26 +4,47 @@
     "typewriter": [
       "Proficient in TypeScript",
       "Specialized in Node.js, React, Next.js",
-      "Well-versed in web development"
+      "Well-versed in web development",
+      "Improving Web Performance and SEO"
     ],
     "learnmore": "LEARN MORE"
   },
   "about": {
     "title": "About",
     "texts": [
-      "I am a full-stack engineer with <b>2.5 years</b> of development experience and a deep understanding of building web applications.",
-      "In my career, I worked at a well-known shoe factory in Taichung and participated in a team of 20+ members, developing a large-scale commercial ERP system using Angular. I also have experience in game development, implementing 2D and 3D animation effects with Pixi.js and Babylon.js.",
-      "As for my expertise, I prefer to use TypeScript as my primary programming language. I am well-versed in using frontend frameworks to complete user interfaces according to project requirements, independently handling backend programming to implement APIs, writing SQL to access database data, planning system architecture and deployment, and being proficient in network protocols and network security measures.",
-      "I am motivated and eager to learn new technologies. So, I enjoy sharing my knowledge and have helped my team improve code quality and readability, as well as successfully helping two members obtain frontend engineer positions."
+      "I am a full-stack engineer with 3.5 years of development experience, deeply knowledgeable about building web applications and optimizing their performance.",
+      "Currently, I work at a well-known stock investment software company, where I am responsible for revamping the marketing website for their flagship product, XQ. ",
+      "In my past career, I also worked at a renowned shoe manufacturing company in Taichung, where I participated in teams of over 20 members, developing large-scale business ERP systems using Angular. Additionally, I have experience in game development, implementing 2D and 3D animation effects using Pixi.js and Babylon.js.",
+      "In terms of skills, TypeScript is my main programming language. I'm proficient in frontend frameworks for building user interfaces, backend programming for implementing APIs, SQL for database management, system architecture planning, and deployment strategies. I also have a strong understanding of network protocols and security measures.",
+      "Programming is a hobby for me, so I am eager to learn new technological knowledge and enjoy sharing what I've learned. I thrive on challenging development projects and look forward to collaborating with passionate and creative companies or teams."
     ]
   },
   "experience": {
     "title": "Experience",
     "texts": [
-      "I obtained my bachelor's degree in CSIE from Tung-Hai University in Taiwan. Currently, I have accumulated 2.5 years of experience in developing web applications and web servers, having worked on a variety of projects ranging from personal websites and web-based games to large-scale ERP systems for business use."
+      "I obtained my bachelor's degree in CSIE from Tung-Hai University in Taiwan. Currently, I have accumulated 3.5 years of experience in developing web applications and web servers, having worked on a variety of projects ranging from personal websites and web-based games to large-scale ERP systems for business use."
     ]
   },
   "experience-timeline": [
+    {
+      "id": "work3",
+      "companyImg": "/img/experiences/sysjust.jpg",
+      "companyName": "SysJust CO., LTD",
+      "jobTitle": "Frontend Developer",
+      "jobPosition": "Engineer",
+      "location": "Taichung",
+      "begintime": [2023, 5],
+      "endtime": [2024, 6],
+      "texts": [
+        "Rebuild the marketing website for the company's flagship product, XQ.",
+        "Utilize frameworks like Astro and Next.js, leveraging SSG to optimize website performance while reducing server costs.",
+        "Adopting Next.js ISR, Optimizing build time from 5 min to 30 sec.",
+        "Crafting UI components using React and Tailwind, then validate their effects with Storybook.",
+        "Using TypeScript, develop UI components and libraries, unit testing, packaging, and publishing.",
+        "Implement an Express-based proxy server to resolve CORS issues when accessing APIs from the client-side.",
+        "Aid in planning CICD processes, enabling on-demand content changes, and automating website rebuilding and deployment."
+      ]
+    },
     {
       "id": "work2",
       "companyImg": "/img/experiences/lattek.jpg",
@@ -35,7 +56,7 @@
       "endtime": [2022, 9],
       "texts": [
         "Assist companies in building the next-generation ERP systems.",
-        "Help the architect maintain the company's front-end shared modules and version control with GitLab.",
+        "Help the architect maintain the company's front-end shared modules.",
         "Use Prettier and ESLint improve the quality and readability of code",
         "Use Angular (2+) to construct the user interface.",
         "Build RESTful CRUD APIs with ASP.NET Core (3.1+).",
@@ -53,8 +74,8 @@
       "endtime": [2021, 3],
       "texts": [
         "Develop web-based game projects using Canvas 2D and WebGL.",
-        "Maintain the game to run correctly on different browsers and mobile devices.",
-        "Use Pixi.js to create 2D games such as slots, little mary slots, and match-3.",
+        "Maintain the game to run correctly on browsers and mobile devices.",
+        "Use Pixi.js to create 2D games such as slots, little mary slots, etc.",
         "Use Babylon.js to create 3D games like Coin Pusher.",
         "Integrate APIs to complete the main game and other payment functions."
       ]
@@ -76,11 +97,13 @@
   "skills": {
     "title": "Skills",
     "texts": [
-      "Proficient in using <b>TypeScript</b> with other technologies for development.",
-      "For the frontend, use <b>React.js</b>, <b>Next.js</b>, and <b>Angular</b> to build web applications. My preferred CSS framework is <b>Tailwind</b>, but I've also utilized <b>Sass</b> and <b>Styled Components</b> in personal projects for managing styles.",
-      "For the backend, I have extensive experience with <b>Node.js</b> and a strong understanding of modularization concepts, such as <b>CommonJS</b> and <b>ESM</b> modules. Depending on requirements, I choose the appropriate tools, such as using <b>Vite</b> to develop <b>SPA</b>. <b>Next.js</b> to provide <b>SEO</b> and <b>pre-rendering</b> to speed up FSP for personal websites. <b>Express.js</b> to build web servers, which can handle I/O-intensive tasks and performance bottlenecks caused by high concurrency.",
-      "With containerization technology, I'm always using<b> Linux (Debian)</b> and <b>Docker</b>, deploying my applications to cloud platforms like <b>AWS</b>, <b>Vercel</b>, <b>Deno-Deploy</b>, <b>Heroku</b> and <b>Github</b>. And for development, I love using <b>WSL2</b> to make sure my projects run seamlessly in production.",
-      "For the database system, use <b>Redis</b> for high-performance caching and real-time streaming, as well as <b>PostgreSQL</b> and <b>MongoDB</b> for high-availability data access and retrieval."
+      "The language I excel in is <b>TypeScript</b>.",
+      "In terms of technical expertise, I specialize more in <b>frontend technologies</b>.",
+      "As a seasoned developer, rather than simply being familiar with technical frameworks, I focus on using the most suitable technology to solve problems.",
+      "For web applications with more static content, I utilize <b>Astro</b> and employ <b>SSG</b> (Static Site Generation) technology to reduce server costs.",
+      "For websites requiring dynamic content and SEO, I opt for Next.js to enhance development efficiency and reduce operational costs.",
+      "In backend technologies, I am proficient in deploying my <b>Node.js</b> services in a <b>Linux</b> environment,",
+      "using <b>Express.js</b> to solve CORS issues, provide API services, and employ localized data storage to shorten build times."
     ]
   },
   "projects": {
@@ -90,7 +113,9 @@
   "contact": {
     "title": "Contact",
     "texts": [
-      "Currently, I'm looking for a <b>full-stack developer</b> position; <b>remote work is preferred</b>. I'm always up for new challenges and enjoy working with companies or people who share my passion for innovation and creativity. Also, if you have any other question or request, don't hesitate to contact me using the form here!"
+      "Currently, I'm seeking employment opportunities that match the technologies I work with.",
+      "<b>remote work is preferred</b>. I'm always up for new challenges and enjoy working with companies or people who share my passion for innovation and creativity.",
+      "Also, if you have any other question or request, don't hesitate to contact me using the form here!"
     ],
     "fields": {
       "name": "Name",

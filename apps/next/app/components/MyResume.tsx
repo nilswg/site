@@ -35,7 +35,7 @@ export const MyResume: FC = () => {
     );
 
     return (
-        <div className="relative mx-auto min-h-[1122px] max-w-[830px] overflow-hidden bg-[#FCFCFC] shadow-[0_-1px_4px_rgba(0,0,0,.1)]">
+        <div className="relative mx-auto max-h-[1122px] max-w-[830px] overflow-hidden bg-[#FCFCFC] shadow-[0_-1px_4px_rgba(0,0,0,.1)]">
             <ResumeDownloadButton lang={lang} prompt={promptStr} errorDict={errorDict} />
             <div className="flex w-full justify-center">
                 <Resume>

@@ -27,7 +27,7 @@ const prompt = t('common:enter_password');
 const errorDict = t('common:errorDict', { returnObjects: true }) as Record<string, string>;
 ---
 
-<div class="relative mx-auto min-h-[1122px] max-w-[830px] overflow-hidden bg-[#FCFCFC] shadow-[0_-1px_4px_rgba(0,0,0,.1)]">
+<div class="relative mx-auto max-h-[1122px] max-w-[830px] overflow-hidden bg-[#FCFCFC] shadow-[0_-1px_4px_rgba(0,0,0,.1)]">
     <ResumeDownloadButton prompt={prompt} lang={lang} errorDict={errorDict} client:load />
     <div class="flex w-full justify-center">
         <Resume>

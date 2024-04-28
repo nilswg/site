@@ -81,10 +81,10 @@ Exp.TimeLine = memo(({ lang, experiences }) => {
         [selected],
     );
     return (
-        <ul id="timeline" className="list-none border-l-8 border-l-sky-800 pl-8 text-white">
+        <ul id="timeline" className="flex flex-col gap-20 py-10 list-none border-l-8 border-l-sky-800 pl-8 text-white">
             {itemsProps.map((item, i) => {
                 return (
-                    <li className="relative my-20" key={item.id}>
+                    <li className="relative" key={item.id}>
                         <Exp.TimeLineItem {...item} {...itemsStatus[i]} />
                     </li>
                 );
