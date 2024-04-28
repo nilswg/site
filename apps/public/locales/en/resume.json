@@ -1,20 +1,20 @@
 {
-  "name": "Pei-Hua Weng",
-  "jobtitle": "Full Stack Developer",
-  "address": "Penghu Country, Taiwan",
-  "social": "social",
-  "profile": "profile",
-  "experience": "experience",
-  "skills": "skills",
-  "certificates": "certificates",
-  "languages": "languages",
-  "profileTexts": [
-    "As a professional with 3.5 years of experience in web application development",
+    "name": "Pei-Hua Weng",
+    "jobtitle": "Full Stack Developer",
+    "address": "Penghu Country, Taiwan",
+    "social": "social",
+    "profile": "profile",
+    "experience": "experience",
+    "skills": "skills",
+    "certificates": "certificates",
+    "languages": "languages",
+    "profileTexts": [
+        "As a professional with 3.5 years of experience in web application development",
 
-    "I have a proven track record of delivering high-quality results, including  marketing websites, large-scale business ERP systems and casino web games",
+        "I have a proven track record of delivering high-quality results, including  marketing websites, large-scale business ERP systems and casino web games",
 
-    "Professionally, I specialize in technologies such as TypeScript, Node.js, React, Astro, Next.js, Express, Vite, and other web development-related technologies.",
+        "Professionally, I specialize in technologies such as TypeScript, Node.js, React, Astro, Next.js, Express, Vite, and other web development-related technologies.",
 
-    "Programming is a hobby for me, so I am eager to learn new technological knowledge and enjoy sharing what I've learned. I thrive on challenging development projects and look forward to collaborating with passionate and creative companies or teams."
-  ]
+        "Programming is a hobby for me, so I am eager to learn new technological knowledge and enjoy sharing what I've learned. I thrive on challenging development projects and look forward to collaborating with passionate and creative companies or teams."
+    ]
 }

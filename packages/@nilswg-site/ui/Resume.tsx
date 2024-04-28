@@ -174,11 +174,12 @@ Resume.Skills = memo(({ lang, className, title }) => {
     </section>
   );
 });
-Resume.Social = ({ lang, title }) => {
+Resume.Social = ({ lang, title, className }) => {
+  const { fontStyles } = useResume(lang);
   return (
-    <section className="font-roboto_condensed py-6">
+    <section className={cn('py-6', fontStyles.base, className)}>
       <SectionTitle>{title}</SectionTitle>
-      <div className="flex flex-col gap-2 pt-1">
+      <div className="flex flex-col gap-2 pt-1 font-roboto_condensed">
         <a
           className="inline-flex items-center text-[.8rem] text-[#403A3A] hover:text-[#0B0A0A]"
           href="https://www.linkedin.com/in/nilson-weng-470672218/">

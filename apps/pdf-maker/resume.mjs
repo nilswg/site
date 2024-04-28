@@ -12,9 +12,14 @@ import { encrypt } from "./lib/qpdf.mjs";
 
 ; (async function () {
     ['zh-TW', ''].forEach(async (lang) => {
-        const url = `http://localhost:4321/${lang ? lang + '/' : '/'}resume/print`
+        const url = `http://localhost:4321/${lang ? lang + '/' : ''}resume/print`
         const filePath = `./out/resume_${lang ? lang : 'en'}.pdf`;
         const encryptedFilePath = `../public/pdf/resume_${lang ? lang : 'en'}.pdf`;
+        console.log({
+            url,
+            filePath,
+            encryptedFilePath
+        })
         const encryptPassword = '0988572252';
 
         await genPDF(url, filePath)
