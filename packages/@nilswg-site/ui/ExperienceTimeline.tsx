@@ -72,7 +72,7 @@ Exp.TimeLine = memo(({ lang, experiences }) => {
         () =>
             experiences.map((e, i) => {
                 return {
-                    active: selected == i,
+                    active: i === selected,
                     onClick: () => {
                         setSelected(i);
                     },
@@ -81,13 +81,9 @@ Exp.TimeLine = memo(({ lang, experiences }) => {
         [selected],
     );
     return (
-        <ul id="timeline" className="flex flex-col gap-20 py-10 list-none border-l-8 border-l-sky-800 pl-8 text-white">
+        <ul id="timeline" className="flex list-none flex-col gap-[80px] border-l-8 border-l-sky-800 py-10 pl-8 text-white">
             {itemsProps.map((item, i) => {
-                return (
-                    <li className="relative" key={item.id}>
-                        <Exp.TimeLineItem {...item} {...itemsStatus[i]} />
-                    </li>
-                );
+                return <Exp.TimeLineItem {...item} {...itemsStatus[i]} key={item.id} />;
             })}
         </ul>
     );
@@ -95,30 +91,37 @@ Exp.TimeLine = memo(({ lang, experiences }) => {
 
 Exp.TimeLineItem = ({ active, onClick, fontStyles, companyName, companyImg, jobDate, jobTenure, jobTitle, jobPosition, jobDetails }) => {
     return (
-        <Fragment>
-            <CompanyPreview active={active} className={fontStyles}>
+        <li className="relative">
+            <CompanyPreview active={active} className={fontStyles} onClick={onClick}>
                 <img src={companyImg} alt={companyName} height={60} width={60} loading="lazy" decoding="async" />
             </CompanyPreview>
-            <JobTenureDates jobDate={jobDate} jobTenure={jobTenure} className={active ? 'font-black text-sky-400' : 'text-sky-500'} />
+            <JobTenureDates jobDate={jobDate} jobTenure={jobTenure} className={active ? 'font-bold text-sky-400' : 'text-sky-500'} />
             <div className={`experience-box ${active ? 'open' : ''}`} onClick={onClick}>
-                <JobTitle jobTitle={jobTitle} />
-                <JobPosition companyName={companyName} jobPosition={jobPosition} />
+                <JobTitle jobTitle={jobTitle} className={active ? 'tracking-wider text-white' : 'text-slate-200'} />
+                <JobPosition
+                    companyName={companyName}
+                    jobPosition={jobPosition}
+                    className={active ? 'font-bold text-white' : 'text-slate-200'}
+                />
                 <JobDetails jobDetails={jobDetails} />
             </div>
-        </Fragment>
+        </li>
     );
 };
 
-const CompanyPreview: FCX<{ children: ReactNode; active: boolean }> = ({ children, active, className }) => {
+const CompanyPreview: FCX<{ children: ReactNode; active: boolean; onClick:()=>void }> = ({ children, active, className, onClick }) => {
     return (
         <div
             id="circle"
             className={cn(
-                'bg-myblack h-10 w-10 overflow-hidden rounded-full transition-all',
-                'absolute top-[50%] -ml-[3.55rem] translate-y-[-50%] md:-ml-[3.6rem]',
-                active ? 'border-2 border-sky-400' : 'border-[5px] border-sky-800',
+                'box-border',
+                'bg-myblack h-10 w-10 overflow-hidden rounded-full transition-all cursor-pointer',
+                'absolute top-[50%] -translate-x-[3.55rem] translate-y-[-50%]',
+                active ? 'scale-125  border-[3px] border-sky-400' : 'scale-100 border-[5px] border-sky-800',
                 className,
-            )}>
+            )}
+            onClick={onClick}
+        >
             {children}
         </div>
     );
@@ -138,21 +141,24 @@ const JobTenureDates: FCX<{ jobDate: string; jobTenure: string }> = ({ jobDate, 
     );
 };
 
-const JobTitle: FC<{ jobTitle: string }> = ({ jobTitle }) => {
+const JobTitle: FCX<{ jobTitle: string }> = ({ jobTitle, className }) => {
     return (
-        <h1 id="job-title" className="font-russon pointer-events-none mt-1 px-3 text-xl transition-transform duration-200 sm:text-xl">
+        <h1
+            id="job-title"
+            className={cn('font-russon pointer-events-none mt-1 px-3 text-lg sm:text-xl transition-transform duration-200', className)}>
             {jobTitle}
         </h1>
     );
 };
 
-const JobPosition: FC<{ companyName: string; jobPosition: string }> = ({ companyName, jobPosition }) => {
+const JobPosition: FCX<{ companyName: string; jobPosition: string }> = ({ companyName, jobPosition, className }) => {
     return (
         <h2
             id="job-position"
             className={cn(
-                'font-play pointer-events-none mt-2 px-3 text-base text-white',
-                'xs:text-base transition-all duration-[0.3s] sm:text-lg md:mt-3',
+                'font-play pointer-events-none mt-2 px-3 text-base sm:text-lg text-white',
+                'transition-all duration-[0.3s] md:mt-3',
+                className,
             )}>
             {companyName}, {jobPosition}
         </h2>
