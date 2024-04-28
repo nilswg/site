@@ -2,7 +2,7 @@ import fs from 'fs';
 import path from 'path';
 import { URLSearchParams } from 'url';
 import type { APIRoute } from 'astro';
-import { respJson } from '@nilswg-site/service';
+import { logError, respJson } from '@nilswg-site/service';
 
 export const prerender = false;
 
@@ -26,7 +26,7 @@ export const GET: APIRoute = async ({ params, request }) => {
     }
 
     try {
-        const resumeName = `resume_${lang === 'zh-TW' ? 'ch' : 'en'}.pdf`;
+        const resumeName = `resume_${lang ? lang : 'en'}.pdf`;
         const resumePath = path.join(process.cwd(), `public/pdf/${resumeName}`);
 
         return new Response(
@@ -44,6 +44,7 @@ export const GET: APIRoute = async ({ params, request }) => {
             },
         );
     } catch (error: unknown) {
+        logError(JSON.stringify(error));
         return respJson(500, { type: 'error', code: 'server_error' });
     }
 };

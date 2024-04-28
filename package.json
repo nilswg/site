@@ -5,6 +5,7 @@
     "astro:build": "pnpm run --filter astro build",
     "next:dev": "pnpm run --filter next dev",
     "next:build": "pnpm run --filter next build",
+    "resume": "pnpm run --filter pdf-maker resume",
     "format:check": "prettier --check ./{apps/astro/src,apps/next/app,packages}/**/*.{astro,ts,tsx} --ignore-path .prettierignore",
     "format:write": "prettier --write ./{apps/astro/src,apps/next/app,packages}/**/*.{astro,ts,tsx} --ignore-path .prettierignore --log-level error"
   },

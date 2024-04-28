@@ -1,7 +1,7 @@
 import fs from 'fs';
 import path from 'path';
 import { URLSearchParams } from 'url';
-import { respJson } from '@nilswg-site/service';
+import { logError, respJson } from '@nilswg-site/service';
 
 const expectPassword = process.env?.['RESUME_DOWNLOAD_PASSWORD'];
 
@@ -23,7 +23,7 @@ export const GET = async (request: Request) => {
     }
 
     try {
-        const resumeName = `resume_${lang === 'zh-TW' ? 'ch' : 'en'}.pdf`;
+        const resumeName = `resume_${lang ? lang : 'en'}.pdf`;
         const resumePath = path.join(process.cwd(), `public/pdf/${resumeName}`);
 
         return new Response(
@@ -36,11 +36,12 @@ export const GET = async (request: Request) => {
             {
                 headers: {
                     'Content-Type': 'application/pdf',
-                    'Content-Disposition': 'attachment; filename="resume.pdf"',
+                    'Content-Disposition': `attachment; filename="${resumeName}"`,
                 },
             },
         );
     } catch (error: unknown) {
+        logError(JSON.stringify(error));
         return respJson(500, { type: 'error', code: 'server_error' });
     }
 };

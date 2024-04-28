@@ -49,6 +49,7 @@ async function genPDF(url, filePath) {
     console.log('PDF generated successfully\n')
     return
   } catch (e) {
+    console.error('\n請先檢查是否已啟動服務: ', url + '\n')
     throw e
   }
 }

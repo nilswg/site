@@ -1,6 +1,7 @@
 {
+    "name": "pdf-maker",
     "scripts": {
-        "start": "node index.mjs"
+        "resume": "node resume.mjs"
     },
     "dependencies": {
         "puppeteer": "^22.7.0"
