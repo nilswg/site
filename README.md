@@ -1,5 +1,5 @@
-# pnpm-workspace
-configure my pnpm workspace.
+# nilswg's personal site
+Nilson Weng personal site, both next.js 14 and astro. 
 
 <br>
 
