@@ -15,7 +15,7 @@ const { i18nKeys } = Astro.props as Props;
 const lang = t('common:lang');
 ---
 
-<SectionTitle lang={lang} text={t(i18nKeys.title)} />
+<SectionTitle lang={lang} text={t(i18nKeys.title)} client:load/>
 <SectionText lang={lang}>
     <p>
         <Trans i18nKey={i18nKeys.texts} isArray>
