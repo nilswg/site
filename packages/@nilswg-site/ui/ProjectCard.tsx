@@ -107,6 +107,20 @@ export const ProjectsList = [
         description: "Nilson Weng's personal portfolio website.",
     },
     {
+        id: 'xq-site-next',
+        title: 'XQ Site',
+        demo: 'https://testweb9.xq.com.tw/xqsite-next/',
+        github: '',
+        preview: {
+            src: '/img/projects/ts-next-nilswg-portfolio.png',
+            alt: 'Project - Nilswg Portfolio',
+            width: 800,
+            height: 600,
+        },
+        tags: ['React', 'Tailwind', 'Astro', 'Express.js'],
+        description: "Nilson Weng's personal portfolio website.",
+    },
+    {
         id: 'ts-next-meetup-room',
         title: 'Meetup Room App',
         demo: 'https://nilswg-meet.vercel.app/',
