@@ -18,7 +18,7 @@
     "@nilswg-site/service": "workspace:*",
     "@nilswg-site/ui": "workspace:*",
     "@nilswg/i18n": "workspace:*",
-    "@nilswg/utils": "workspace:*",
+    "@nilswg/utils": "0.0.1",
     "astro-i18next": "1.0.0-beta.18",
     "i18next": "^23.10.1",
     "i18next-browser-languagedetector": "^7.2.1",

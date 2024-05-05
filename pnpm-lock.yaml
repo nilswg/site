@@ -69,8 +69,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/@nilswg/i18n
       '@nilswg/utils':
-        specifier: workspace:*
-        version: link:../../packages/@nilswg/utils
+        specifier: 0.0.1
+        version: 0.0.1(class-variance-authority@0.7.0)(tailwind-merge@2.2.2)
       astro-i18next:
         specifier: 1.0.0-beta.18
         version: 1.0.0-beta.18(astro@4.5.12)(i18next@23.10.1)
@@ -160,8 +160,8 @@ importers:
         specifier: workspace:*
         version: link:../../packages/@nilswg/i18n-next
       '@nilswg/utils':
-        specifier: workspace:*
-        version: link:../../packages/@nilswg/utils
+        specifier: 0.0.1
+        version: 0.0.1(class-variance-authority@0.7.0)(tailwind-merge@2.2.2)
       next:
         specifier: 14.1.4
         version: 14.1.4(@babel/core@7.24.3)(react-dom@18.2.0)(react@18.2.0)
@@ -209,7 +209,7 @@ importers:
         specifier: ^5
         version: 5.4.3
 
-  apps/puppeteer:
+  apps/pdf-maker:
     dependencies:
       puppeteer:
         specifier: ^22.7.0
@@ -273,8 +273,8 @@ importers:
         specifier: workspace:*
         version: link:../hooks
       '@nilswg/utils':
-        specifier: workspace:*
-        version: link:../../@nilswg/utils
+        specifier: 0.0.1
+        version: 0.0.1(class-variance-authority@0.7.0)(tailwind-merge@2.2.2)
       animated-tailwindcss:
         specifier: ^4
         version: 4.0.0(postcss@8.4.38)(tailwindcss@3.4.3)
@@ -330,15 +330,6 @@ importers:
       react-i18next:
         specifier: ^14.1.0
         version: 14.1.0(i18next@23.10.1)(react-dom@18.2.0)(react@18.2.0)
-
-  packages/@nilswg/utils:
-    dependencies:
-      class-variance-authority:
-        specifier: ^0.7.0
-        version: 0.7.0
-      tailwind-merge:
-        specifier: ^2.2.2
-        version: 2.2.2
 
 packages:
 
@@ -1692,6 +1683,16 @@ packages:
     requiresBuild: true
     dev: false
     optional: true
+
+  /@nilswg/utils@0.0.1(class-variance-authority@0.7.0)(tailwind-merge@2.2.2):
+    resolution: {integrity: sha512-t1gV7KaO/z/ln7kSjeOJAJrZvgm1tElLERSLbZJttQBF0Z8GV09wPhoVe/Ev/xAlDucn0O+SGp4qP/0kGxWoNQ==}
+    peerDependencies:
+      class-variance-authority: ^0.7.0
+      tailwind-merge: ^2.2.2
+    dependencies:
+      class-variance-authority: 0.7.0
+      tailwind-merge: 2.2.2
+    dev: false
 
   /@nodelib/fs.scandir@2.1.5:
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}

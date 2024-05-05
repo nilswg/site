@@ -1,8 +1,0 @@
-{
-    "name": "@nilswg/utils",
-    "main": "./index.ts",
-    "peerDependencies": {
-        "class-variance-authority": "^0.7.0",
-        "tailwind-merge": "^2.2.2"
-    }
-}
