@@ -3,7 +3,7 @@ import { withAnimations } from 'animated-tailwindcss';
 /** @type {import('tailwindcss').Config} */
 export default withAnimations({
 	content: [
-		'./app/**/*.{astro,html,js,jsx,ts,tsx}', //
+		'./{app,components,feats,layouts}/**/*.{ts,tsx}', //
 		'../../packages/@nilswg-site/{ui,feat}/**/*.{ts,tsx}',
 	],
 	theme: {
