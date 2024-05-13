@@ -4,7 +4,7 @@
     "peerDependencies": {
         "@nanostores/react": "^0.7.2",
         "@nilswg-site/hooks": "workspace:*",
-        "@nilswg/utils": "0.0.1",
+        "@nilswg/utils": "0.0.3",
         "animated-tailwindcss": "^4",
         "moment": "^2.30",
         "nanostores": "^0.10.3",
