@@ -5,7 +5,7 @@ import { useMemo } from 'react';
 import Image from 'next/image';
 import { Nav } from '@nilswg-site/ui';
 import { useTranslation } from 'next-i18next';
-import logo from 'public/nilswg-blue-noblack-min.svg';
+import logo from '../../public/nilswg-blue-noblack-min.svg';
 
 export const Navbar: FC = () => {
     const { t, i18n } = useTranslation();

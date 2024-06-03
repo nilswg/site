@@ -1,5 +1,5 @@
 import { SocialLinks } from '@nilswg-site/ui';
-import logo from 'public/nilswg-blue-noblack-min.svg';
+import logo from '../../public/nilswg-blue-noblack-min.svg';
 import { Image } from './Image';
 
 export const Footer = () => (
