@@ -25,10 +25,17 @@ type Props_ContactForm = {
 export const ContactForm: FC<Props_ContactForm> = memo(({ fields, fontStyles }) => {
     const { setName, setEmail, setTopic, setMessage } = useForm();
     const { send } = useSendLineMessage();
+    const { addToast } = useToasts();
+    const { setLoading } = useForm();
 
-    const onSubmit = useCallback((e: React.FormEvent<HTMLFormElement>) => {
+    const onSubmit = useCallback(async (e: React.FormEvent<HTMLFormElement>) => {
+        let __form = e.currentTarget;
         e.preventDefault();
-        send(new FormData(e.currentTarget));
+        setLoading(true);
+        const res = await send(new FormData(e.currentTarget));
+        res.type === 'success' && __form.reset();
+        addToast({ type: res.type, text: res.message });
+        setLoading(false);
     }, []);
 
     return (
@@ -74,13 +81,8 @@ export const ContactForm: FC<Props_ContactForm> = memo(({ fields, fontStyles }) 
 });
 
 export function useSendLineMessage() {
-    const { setLoading } = useForm();
-    const { addToast } = useToasts();
-
     return {
-        send: useCallback(async (formData: FormData) => {
-            setLoading(true);
-
+        send: useCallback(async (formData: FormData): Promise<{ type: 'warn' | 'success' | 'error'; message: string }> => {
             try {
                 const data = await sendLineMessage(formData);
 
@@ -97,40 +99,28 @@ export function useSendLineMessage() {
                     });
 
                     if (zodError !== '') {
-                        console.log('[ZodError]', zodError);
-                        addToast({ type: 'warn', text: zodError });
+                        return { type: 'warn', message: zodError };
                     } else {
-                        console.log('[ServerError]', data.errors);
-                        addToast({ type: 'error', text: t('common:errorDict.error') });
+                        return { type: 'error', message: t('common:errorDict.error') };
                     }
-                    setLoading(false);
-                    return;
                 }
 
                 /**
                  * 正確訊息
                  */
                 if (data.message === 'ok') {
-                    addToast({ type: 'success', text: t('common:errorDict.success') });
-                    setLoading(false);
-                    // clear message field
-                    // setMessage({ target: { value: '' } } as any);
-                    // page reload
-                    setTimeout(() => window.location.reload(), 1000);
-                    return;
+                    return { type: 'success', message: t('common:errorDict.success') };
                 }
 
                 /**
                  * 例外狀況
                  */
-                throw new Error('exception');
+                return { type: 'error', message: 'exception' };
             } catch (error: any) {
                 /**
                  * 處理前台語法錯誤
                  */
-                console.log('[ERROR]', error.message);
-                addToast({ type: 'error', text: t('common:errorDict.error') });
-                setLoading(false);
+                return { type: 'error', message: t('common:errorDict.error') };
             }
         }, []),
     };
