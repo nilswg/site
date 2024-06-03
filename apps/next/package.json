@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "next build",
+    "build:dev": "next build",
+    "build:prod": "unlink ./public && cp -r ../public ./public && next build",
     "start": "next start",
     "lint": "next lint"
   },

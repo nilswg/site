@@ -6,7 +6,8 @@
     "dev": "astro dev --mode DEV",
     "start": "astro dev",
     "check": "astro check",
-    "build": "pnpm run i18n:gen && astro build --mode PROD",
+    "build:dev": "pnpm run i18n:gen && astro build --mode PROD",
+    "build:prod": "unlink ./public && cp -r ../public ./public && next build",
     "preview": "astro preview",
     "i18n:gen": "npx astro-i18next generate"
   },
