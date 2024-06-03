@@ -2,14 +2,14 @@ import { defineConfig, sharpImageService } from 'astro/config';
 import react from "@astrojs/react";
 import tailwind from "@astrojs/tailwind";
 import astroI18next from "astro-i18next";
-// import vercel from "@astrojs/vercel/serverless";
-import node from "@astrojs/node";
+import vercel from "@astrojs/vercel/serverless";
+// import node from "@astrojs/node";
 
 // https://astro.build/config
 export default defineConfig({
   output: 'hybrid',
-  adapter: node({
-    mode: 'standalone',
+  adapter: vercel({
+    edgeMiddleware: true,
   }),
   integrations: [react(), tailwind(), astroI18next()],
   image: {
