@@ -24,3 +24,4 @@ export * from './Toasts';
 export * from './ToastsDebugger';
 export * from './stores/toasts';
 export * from './CommingSoon';
+export * from './data/projects';

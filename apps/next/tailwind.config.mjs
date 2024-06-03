@@ -23,13 +23,10 @@ export default withAnimations({
 				roboto: ['Roboto'],
 				roboto_condensed: ['RobotoCondensed']
 			},
-			height: {
+			spacing: {
 				navbar: 'var(--navbar-height)',
 				footer: 'var(--footer-height)',
 				section: 'calc(100vh - var(--navbar-height)'
-			},
-			minHeight: {
-				section: 'calc(100vh - var(--navbar-height) - var(--footer-height))',
 			},
 			screens: {
 				xs: '360px',

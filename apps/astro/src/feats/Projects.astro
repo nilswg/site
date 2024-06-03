@@ -1,5 +1,5 @@
 ---
-import { DecTag, ProjectsList } from '@nilswg-site/ui';
+import { DecTag, projectsData } from '@nilswg-site/ui';
 import ProjectCard from '@/components/ProjectCard.astro';
 import SectionTexts from '@/components/SectionTexts.astro';
 import VerticalFrame from '@/components/VerticalFrame.astro';
@@ -18,7 +18,7 @@ import VerticalFrame from '@/components/VerticalFrame.astro';
     <div class="flex w-full flex-col items-center self-center">
         <div class="xs:px-9 grid max-w-4xl grid-cols-1 gap-10 px-0 py-5 lg:grid-cols-2 2xl:max-w-full 2xl:grid-cols-3">
             {
-                ProjectsList.map((proj, i) => (
+                projectsData.map((proj, i) => (
                     <ProjectCard
                         tags={proj.tags}
                         title={proj.title}

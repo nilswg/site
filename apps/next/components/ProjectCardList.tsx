@@ -1,13 +1,13 @@
 import type { FC } from 'react';
 import type { Props_Image } from './Image';
 import { Fragment, memo } from 'react';
-import { Project, ProjectsList } from '@nilswg-site/ui';
+import { Project, projectsData } from '@nilswg-site/ui';
 import { Image } from './Image';
 
 export const ProjectCardList = memo(() => {
     return (
         <Fragment>
-            {ProjectsList.map((proj, i) => (
+            {projectsData.map((proj, i) => (
                 <ProjectCard
                     tags={proj.tags}
                     title={proj.title}

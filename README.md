@@ -1,73 +1,58 @@
-# nilswg's personal site
-Nilson Weng personal site, both next.js 14 and astro. 
+# ts-next-nilswg-blog
+This is nilswg's personal portfolio website.
+
+## 🐱‍🏍 Skills
+pnpm, monorepo, Next.js, Astro, Tailwind, TypeScript, Vercel
 
 <br>
 
-## Quick Start
-```bash
-# The way you choose to install pnpm depends on your environment.
-$ npm install -g pnpm 
-
-# Make sure you have PNPM installed already.
-$ pnpm -v
-
-# Use pnpm install to initialize the workspace.
-$ pnpm install
-
-# Now you can find the package "hello" installed in your workspace.
-dependencies:
-+ hello <- packages/hello
-```
+## 🚀 <a href="https://nilswg-portfolio.vercel.app/">Demo Website</a>
+click link to see demo.
 
 <br>
 
-## Settings
+## ✨ Showcase
+![image](https://user-images.githubusercontent.com/64550861/217883710-4584325d-6a00-4a10-ab21-c7eda5c1b900.png)
 
-Create folders: apps\、packages\
-```bash
- # such as react, angular, vite, next.js
- * - apps
- # such as math, utils, tools, libraries
- * - packages
-```
+![image](https://user-images.githubusercontent.com/64550861/220078309-ed18e081-691c-4911-b955-94afb38f4127.png)
 
-```yaml
-@ file: pnpm-workspace.yaml
+![image](https://user-images.githubusercontent.com/64550861/217887608-47aa1652-faee-4760-8926-a3ddcc12d524.png)
 
-packages:
-  - 'apps/**'
-  - 'packages/**'
-```
+![image](https://user-images.githubusercontent.com/64550861/217887969-dfa9f853-4ed5-42b9-88d0-869ba8846da0.png)
 
 <br>
 
-## Test packages/hello
-let's create a hello module in packages folder
-
-```json
-// @file: package.json
-{
-  "name": "pnpm-workspace",
-  "dependencies": {
-    "hello": "workspace:*",  // <= your custom module can be shared to other app
-}
-```
+## 🛫 Quick start
 
 ```bash
-$ node index.js
-[from hello module]: hello!
+npm install
 ```
 
 <br>
 
-## Create Next App in apps folder.
-Now, we create a my-next-app in apps/
+### Create your key
+This service you can choose own, and modify file: pages/api/message.ts.
 
-```
-cd apps
-pnpx create-next-app@latest my-next-app
-...
+Here, I use Line Nofify API. So, you can set your key here like this.
+
+<a href="https://notify-bot.line.me/doc/en/">Line Notify API</a>
+
+```bash
+### @file: env.local
+### Just an exmaple, don't use it directly.
+LINE_NOTIFY_TOKEN=yd8u6TmdC6e7CNOwz8aGV3ONHDjulTrnSJhXRZujboq
 ```
 
-In my-next-app, all packages stored in the node_modules directory are symbolic links to pnpm packages. This means that these packages can be reused by other Next.js projects, which helps reduce disk storage usage.
+Of course, you need a Line Account, and create a group to receive message.
+
+<br>
+
+## 📚 Read More
+
+Some Notion notes are here, but only in Chinese.
+
+這裡有我用 Notion 整理出的開發重點
+
+<a href="https://nilswg.notion.site/Nilswg-Portfolio-6d8e7a9a16ef44a7bce49745f31781af"> Notion Notes </a>
+
 
