@@ -293,10 +293,6 @@ importers:
       react-icons:
         specifier: ^5
         version: 5.0.1(react@18.2.0)
-    devDependencies:
-      i18next:
-        specifier: ^23.10
-        version: 23.10.1
 
   packages/@nilswg/i18n:
     dependencies:

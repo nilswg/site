@@ -38,7 +38,7 @@ export const projectsData = [
             width: 800,
             height: 600,
         },
-        tags: ['Next.js', 'Zustand', 'Socket.io', 'Peer.js', 'Deno', 'Socket.io', 'Websocket'],
+        tags: ['Next.js', 'Zustand', 'Socket.io', 'Peer.js', 'Deno', 'Websocket'],
         description: 'This is a meetup room app for learning WebSocket and building with Next.js, Socket.io, Peer.js, etc.',
     },
     // {

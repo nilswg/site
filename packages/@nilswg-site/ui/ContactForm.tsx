@@ -3,7 +3,6 @@
 import type { FC } from 'react';
 import { memo, useCallback } from 'react';
 import { cn } from '@nilswg/utils';
-import { t } from 'i18next';
 import { Form, useForm } from './Form';
 import { useToasts } from './stores/toasts';
 
@@ -20,11 +19,12 @@ type Props_ContactForm = {
         };
     };
     fontStyles: string;
+    errorDict: Record<string, string>;
 };
 
-export const ContactForm: FC<Props_ContactForm> = memo(({ fields, fontStyles }) => {
+export const ContactForm: FC<Props_ContactForm> = memo(({ fields, fontStyles, errorDict }) => {
     const { setName, setEmail, setTopic, setMessage } = useForm();
-    const { send } = useSendLineMessage();
+    const { send } = useSendLineMessage(errorDict);
     const { addToast } = useToasts();
     const { setLoading } = useForm();
 
@@ -33,6 +33,7 @@ export const ContactForm: FC<Props_ContactForm> = memo(({ fields, fontStyles }) 
         e.preventDefault();
         setLoading(true);
         const res = await send(new FormData(e.currentTarget));
+        console.log({ res })
         res.type === 'success' && __form.reset();
         addToast({ type: res.type, text: res.message });
         setLoading(false);
@@ -80,7 +81,7 @@ export const ContactForm: FC<Props_ContactForm> = memo(({ fields, fontStyles }) 
     );
 });
 
-export function useSendLineMessage() {
+export function useSendLineMessage(errorDict: Record<string, string>) {
     return {
         send: useCallback(async (formData: FormData): Promise<{ type: 'warn' | 'success' | 'error'; message: string }> => {
             try {
@@ -94,14 +95,12 @@ export function useSendLineMessage() {
                      * 如果有在字典檔中查找到對應的訊息，就警示訊息，
                      * 反之，表示為例外錯誤狀況，顯示錯誤訊息。
                      */
-                    const zodError = t(`common:errorDict.${data.errors}`, {
-                        defaultValue: '',
-                    });
+                    const zodError = errorDict[data.errors] || '';
 
                     if (zodError !== '') {
                         return { type: 'warn', message: zodError };
                     } else {
-                        return { type: 'error', message: t('common:errorDict.error') };
+                        return { type: 'error', message: errorDict['error'] };
                     }
                 }
 
@@ -109,7 +108,7 @@ export function useSendLineMessage() {
                  * 正確訊息
                  */
                 if (data.message === 'ok') {
-                    return { type: 'success', message: t('common:errorDict.success') };
+                    return { type: 'success', message: errorDict['success'] };
                 }
 
                 /**
@@ -120,7 +119,7 @@ export function useSendLineMessage() {
                 /**
                  * 處理前台語法錯誤
                  */
-                return { type: 'error', message: t('common:errorDict.error') };
+                return { type: 'error', message: errorDict['error'] };
             }
         }, []),
     };

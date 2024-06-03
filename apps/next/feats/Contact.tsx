@@ -10,7 +10,7 @@ import { VerticalFrame } from '@/components/VerticalFrame';
 
 export const Contact: FC = () => {
     const { t } = useTranslation();
-    const { fields, fontStyles } = useMemo(
+    const { fields, fontStyles, errorDict } = useMemo(
         () => ({
             fields: {
                 name: getI18nText(t, 'home:contact.fields.name'),
@@ -24,11 +24,12 @@ export const Contact: FC = () => {
                 },
             },
             fontStyles: getI18nText(t, 'common:fontStyles'),
+            errorDict: t('common:errorDict', { returnObjects: true }) as Record<string, string>,
         }),
         [],
     );
     return (
-        <section id="contact" className="bg-myblack w-full py-navbar">
+        <section id="contact" className="bg-myblack py-navbar w-full">
             <VerticalFrame>
                 <SectionTexts
                     i18nKeys={{
@@ -38,7 +39,7 @@ export const Contact: FC = () => {
                 />
                 <DecTag className="ml-6">{'<form>'}</DecTag>
             </VerticalFrame>
-            <ContactForm fields={fields} fontStyles={fontStyles} />
+            <ContactForm fields={fields} fontStyles={fontStyles} errorDict={errorDict} />
             <VerticalFrame>
                 <DecTag className="ml-6">{'</form>'}</DecTag>
             </VerticalFrame>

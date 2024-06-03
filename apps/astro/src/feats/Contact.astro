@@ -18,6 +18,7 @@ const fields = {
 };
 
 const fontStyles = getI18nText(t, 'common:fontStyles');
+const errorDict = t('common:errorDict', { returnObjects: true }) as Record<string, string>;
 ---
 
 <section id="contact" class="bg-myblack w-full py-navbar">
@@ -30,7 +31,7 @@ const fontStyles = getI18nText(t, 'common:fontStyles');
         />
         <DecTag className="ml-6">{'<form>'}</DecTag>
     </VerticalFrame>
-    <ContactForm fields={fields} fontStyles={fontStyles} client:load />
+    <ContactForm fields={fields} fontStyles={fontStyles} errorDict={errorDict} client:load />
     <VerticalFrame>
         <DecTag className="ml-6">{'</form>'}</DecTag>
     </VerticalFrame>
