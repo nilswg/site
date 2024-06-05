@@ -22,10 +22,6 @@
   src: url("/fonts/Outfit-VariableFont_wght.ttf");
 }
 @font-face {
-  font-family: "MSBlack";
-  src: url("/fonts/MSBlack.ttf");
-}
-@font-face {
   font-family: "NotoSansTC";
   src: url("/fonts/NotoSansTC-Regular.otf");
 }

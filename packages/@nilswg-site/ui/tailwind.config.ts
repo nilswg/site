@@ -14,7 +14,7 @@ export default withAnimations({
                 orbitron: ['Orbitron'],
                 play: ['Play'],
                 outfit: ['Outfit'],
-                zhtw: ['Roboto', 'MSBlack'],
+                zhtw: ['Roboto', 'NotoSansTC'],
                 notosans: ['NotoSansTC'],
                 notosans_bold: ['NotoSansTC-Bold'],
                 roboto: ['Roboto'],
