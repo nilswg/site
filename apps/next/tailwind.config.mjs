@@ -12,16 +12,15 @@ export default withAnimations({
 				myblack: 'rgb(28 29 37)'
 			},
 			fontFamily: {
-				belle: ['La Belle Aurore'],
-				russon: ['RussoOne'],
-				orbitron: ['Orbitron'],
-				play: ['Play'],
-				outfit: ['Outfit'],
-				zhtw: ['Roboto', 'NotoSansTC'],
-				notosans: ['NotoSansTC'],
-				notosans_bold: ['NotoSansTC-Bold'],
-				roboto: ['Roboto'],
-				roboto_condensed: ['RobotoCondensed']
+				belle: ['var(--font-belle)'],
+				russon: ['var(--font-russon)'],
+				orbitron: ['var(--font-orbitron)'],
+				play: ['var(--font-play)'],
+				outfit: ['var(--font-outfit)'],
+				zhtw: ['var(--font-roboto)', 'var(--font-notosans-tc)'],
+				notosans: ['var(--font-notosans-tc)'],
+				roboto: ['var(--font-roboto)'],
+				roboto_condensed: ['var(--font-roboto-condensed)'],
 			},
 			spacing: {
 				navbar: 'var(--navbar-height)',

@@ -13,10 +13,12 @@ type Props = {
 const { i18nKeys } = Astro.props as Props;
 
 const lang = t('common:lang');
+const titleStyle = lang === 'zh-TW' ? 'font-notosans_bold mb-3' : 'font-russon font-normal';
+const textStyle = lang === 'zh-TW' ? 'font-zhtw' : 'font-outfit';
 ---
 
-<SectionTitle lang={lang} text={t(i18nKeys.title)} client:load/>
-<SectionText lang={lang}>
+<SectionTitle className={titleStyle} text={t(i18nKeys.title)} client:load/>
+<SectionText className={textStyle}>
     <p>
         <Trans i18nKey={i18nKeys.texts} isArray>
             I'm a <b class="font-bold text-white">2.5 years</b> ...

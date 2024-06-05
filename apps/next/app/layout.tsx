@@ -1,8 +1,6 @@
 import type { Metadata } from 'next';
-// import { Inter } from 'next/font/google';
+import { fontVariables } from './fonts';
 import './globals.css';
-
-// const inter = Inter({ subsets: ['latin'] });
 
 export const metadata: Metadata = {
     title: 'Create Next App',
@@ -12,7 +10,9 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body className={' bg-slate-800'}>{children}</body>
+            <body className={`${fontVariables} bg-slate-800`}>
+                {children}
+            </body>
         </html>
     );
 }
