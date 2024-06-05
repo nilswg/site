@@ -32,10 +32,10 @@ export const ContactForm: FC<Props_ContactForm> = memo(({ fields, fontStyles, er
         let __form = e.currentTarget;
         e.preventDefault();
         setLoading(true);
-        const res = await send(new FormData(e.currentTarget));
-        console.log({ res })
-        res.type === 'success' && __form.reset();
-        addToast({ type: res.type, text: res.message });
+        const response = await send(new FormData(e.currentTarget));
+        console.log({ response })
+        response.type === 'success' && __form.reset();
+        addToast({ type: response.type, text: response.message });
         setLoading(false);
     }, []);
 

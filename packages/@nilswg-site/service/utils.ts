@@ -11,6 +11,7 @@ export function useZodError(error: z.ZodError) {
 }
 
 export function logError(error: string) {
+    if (process.env.NODE_ENV === 'production') return; 
     fs.appendFileSync(path.resolve('../../log/error.log'), new Date().toISOString() + ' ' + error + '\n');
 }
 
