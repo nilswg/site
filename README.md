@@ -6,7 +6,7 @@ pnpm, monorepo, Next.js, Astro, Tailwind, TypeScript, Vercel
 
 <br>
 
-## 🚀 <a href="https://nilswg-portfolio.vercel.app/">Demo Website</a>
+## 🚀 <a href="https://nilswg-site.vercel.app/">Demo Website</a>
 click link to see demo.
 
 <br>
