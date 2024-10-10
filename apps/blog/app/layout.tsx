@@ -5,6 +5,11 @@ import { ThemeProvider } from "@/components/theme-provider"
 import { Analytics } from "@/components/analytics"
 import { ModeToggle } from "@/components/mode-toggle"
 
+/**
+ * 導入 highlight
+ */
+import "prism-themes/themes/prism-dracula.css"
+
 const inter = Inter({ subsets: ["latin"] })
 
 export const metadata = {
