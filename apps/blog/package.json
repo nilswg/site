@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev --turbo",
     "build": "next build",
     "preview": "next build && next start",
     "start": "next start",
@@ -15,18 +15,17 @@
     "@types/react": "18.2.0",
     "@types/react-dom": "18.2.1",
     "@vercel/analytics": "^1.0.0",
-    "autoprefixer": "10.4.14",
     "contentlayer2": "^0.4.6",
-    "next": "13.5.2",
+    "next": "latest",
     "next-contentlayer2": "^0.4.6",
     "next-themes": "^0.2.1",
-    "postcss": "8.4.23",
+    "postcss": "^8",
     "prism-themes": "^1.9.0",
-    "react": "18.2.0",
-    "react-dom": "18.2.0",
+    "react": "latest",
+    "react-dom": "latest",
     "rehype-prism-plus": "^2.0.0",
     "remark-gfm": "^4.0.0",
     "tailwindcss": "^3.4.1",
-    "typescript": "5.5"
+    "typescript": "5.5.4"
   }
 }

@@ -1,14 +1,21 @@
+import Link from "next/link"
 import type { Metadata } from "next";
-import localFont from "next/font/local";
-import "./globals.css";
+import { ThemeProvider } from "@/components/theme-provider"
+import { Analytics } from "@/components/analytics"
+import { ModeToggle } from "@/components/mode-toggle"
+import { Inter, Noto_Sans_TC } from 'next/font/google';
 
-const geistSans = localFont({
-  src: "./fonts/GeistVF.woff",
-  variable: "--font-geist-sans",
-});
-const geistMono = localFont({
-  src: "./fonts/GeistMonoVF.woff",
-  variable: "--font-geist-mono",
+import "./globals.css";
+import "prism-themes/themes/prism-dracula.css"
+import "./styles/rehype-code-titles.css"
+import "./styles/rehype-line-numbers.css"
+
+const inter = Inter({ subsets: ["latin"] })
+
+const notoSansTC = Noto_Sans_TC({
+  variable: '--font-noto-sans-tc',
+  subsets: ['cyrillic'],
+  weight: ['100', '300', '400', '500', '700', '900'],
 });
 
 export const metadata: Metadata = {
@@ -23,8 +30,24 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${geistSans.variable} ${geistMono.variable}`}>
-        {children}
+      <body
+        className={`antialiased min-h-screen bg-white dark:bg-slate-950 text-slate-900 dark:text-slate-50 ${inter.className} ${notoSansTC.variable}`}
+      >
+        <ThemeProvider attribute="class" defaultTheme="system" enableSystem>
+            <div className="max-w-2xl mx-auto py-10 px-4">
+              <header>
+                <div className="flex items-center justify-between">
+                  <ModeToggle />
+                  <nav className="ml-auto text-sm font-medium space-x-6">
+                    <Link href="/">Home</Link>
+                    <Link href="/about">About</Link>
+                  </nav>
+                </div>
+              </header>
+              <main>{children}</main>
+            </div>
+            <Analytics />
+          </ThemeProvider>
       </body>
     </html>
   );

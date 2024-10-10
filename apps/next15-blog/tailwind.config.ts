@@ -1,6 +1,9 @@
 import type { Config } from "tailwindcss";
+import defaultTheme from 'tailwindcss/defaultTheme';
+import typography from "@tailwindcss/typography";
 
 const config: Config = {
+  darkMode: ['class'],
   content: [
     "./pages/**/*.{js,ts,jsx,tsx,mdx}",
     "./components/**/*.{js,ts,jsx,tsx,mdx}",
@@ -15,9 +18,10 @@ const config: Config = {
       fontFamily: {
         sans: ["var(--font-geist-sans)"],
         mono: ["var(--font-geist-mono)"],
+        notoSansTC: ['var(--font-noto-sans-tc)', ...defaultTheme.fontFamily.sans]
       },
     },
   },
-  plugins: [],
+  plugins: [typography],
 };
 export default config;
