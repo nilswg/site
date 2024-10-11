@@ -19,7 +19,7 @@ export const SectionText: FC<Props_SectionText> = ({ className, children }) => {
                     'mx-9 my-1 flex flex-col gap-2', //
                     'text-sm tracking-widest text-gray-400',
                     'sm:text-justify sm:text-base',
-                    className
+                    className,
                 )}>
                 {children}
             </div>
@@ -42,7 +42,7 @@ export const SectionTitle: FC<Props_SectionTitle> = ({ className, text }) => {
                     // lang === 'zh-TW' ? 'font-notosans_bold font-bold mb-3' : 'font-russon font-normal',
                     'ml-9 inline-block text-[2.75rem] text-sky-400', //
                     'xs:text-5xl sm:text-6xl md:text-7xl xl:text-8xl',
-                    className
+                    className,
                 )}
                 letters={text}
             />

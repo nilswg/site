@@ -35,7 +35,7 @@ export const SkillsContainer: FC<{ children: ReactNode }> = ({ children }) => (
 );
 
 export const MySkills = [
-    { id: 'Node.js', img: '/img/skills/nodejs.png' }, 
+    { id: 'Node.js', img: '/img/skills/nodejs.png' },
     { id: 'TypeScript', img: '/img/skills/TypeScript.svg' },
     { id: 'React', img: '/img/skills/React-Dark.svg' },
     { id: 'Tailwind', img: '/img/skills/tailwind.png' },

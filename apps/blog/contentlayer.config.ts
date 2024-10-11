@@ -1,8 +1,6 @@
 import { ComputedFields, defineDocumentType, makeSource } from 'contentlayer2/source-files';
-// import rehypeCodeTitles from 'rehype-code-titles';
-// import rehypeSlug from 'rehype-slug';
-import remarkGfm from 'remark-gfm';
 import rehypePrism from 'rehype-prism-plus';
+import remarkGfm from 'remark-gfm';
 
 const computedFields: ComputedFields = {
     slug: {

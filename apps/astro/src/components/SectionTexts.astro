@@ -17,7 +17,7 @@ const titleStyle = lang === 'zh-TW' ? 'font-notosans_bold mb-3' : 'font-russon f
 const textStyle = lang === 'zh-TW' ? 'font-zhtw' : 'font-outfit';
 ---
 
-<SectionTitle className={titleStyle} text={t(i18nKeys.title)} client:load/>
+<SectionTitle className={titleStyle} text={t(i18nKeys.title)} client:load />
 <SectionText className={textStyle}>
     <p>
         <Trans i18nKey={i18nKeys.texts} isArray>
