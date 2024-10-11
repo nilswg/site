@@ -5,8 +5,6 @@ import { logError, respJson } from '@nilswg-site/service';
 
 const expectPassword = process.env?.['RESUME_DOWNLOAD_PASSWORD'];
 
-export const runtime = 'edge';
-
 export const GET = async (request: Request) => {
     const query = new URLSearchParams(request.url.split('?')[1]);
     const lang = query.get('lang');
