@@ -1,7 +1,7 @@
 export const projectsData = [
     {
         id: 'nilswg-site',
-        title: 'Nilswg\'s Personal Site',
+        title: "Nilswg's Personal Site",
         demo: 'https://testweb9.xq.com.tw/xqsite-next/',
         github: 'https://github.com/nilswg/ts-next-nilswg-portfolio',
         preview: {
@@ -25,7 +25,7 @@ export const projectsData = [
             height: 600,
         },
         tags: ['Astro', 'Tailwind', 'React', 'TypeScript', 'Express.js'],
-        description: 'This is a commercial website for marketing and introducing Sysjust\'s main product, XQ.',
+        description: "This is a commercial website for marketing and introducing Sysjust's main product, XQ.",
     },
     {
         id: 'ts-next-meetup-room',

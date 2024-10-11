@@ -109,19 +109,18 @@ Exp.TimeLineItem = ({ active, onClick, fontStyles, companyName, companyImg, jobD
     );
 };
 
-const CompanyPreview: FCX<{ children: ReactNode; active: boolean; onClick:()=>void }> = ({ children, active, className, onClick }) => {
+const CompanyPreview: FCX<{ children: ReactNode; active: boolean; onClick: () => void }> = ({ children, active, className, onClick }) => {
     return (
         <div
             id="circle"
             className={cn(
                 'box-border',
-                'bg-myblack h-10 w-10 overflow-hidden rounded-full transition-all cursor-pointer',
+                'bg-myblack h-10 w-10 cursor-pointer overflow-hidden rounded-full transition-all',
                 'absolute top-[50%] -translate-x-[3.55rem] translate-y-[-50%]',
                 active ? 'scale-125  border-[3px] border-sky-400' : 'scale-100 border-[5px] border-sky-800',
                 className,
             )}
-            onClick={onClick}
-        >
+            onClick={onClick}>
             {children}
         </div>
     );
@@ -145,7 +144,7 @@ const JobTitle: FCX<{ jobTitle: string }> = ({ jobTitle, className }) => {
     return (
         <h1
             id="job-title"
-            className={cn('font-russon pointer-events-none mt-1 px-3 text-lg sm:text-xl transition-transform duration-200', className)}>
+            className={cn('font-russon pointer-events-none mt-1 px-3 text-lg transition-transform duration-200 sm:text-xl', className)}>
             {jobTitle}
         </h1>
     );
@@ -156,7 +155,7 @@ const JobPosition: FCX<{ companyName: string; jobPosition: string }> = ({ compan
         <h2
             id="job-position"
             className={cn(
-                'font-play pointer-events-none mt-2 px-3 text-base sm:text-lg text-white',
+                'font-play pointer-events-none mt-2 px-3 text-base text-white sm:text-lg',
                 'transition-all duration-[0.3s] md:mt-3',
                 className,
             )}>
